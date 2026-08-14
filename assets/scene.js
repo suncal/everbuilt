@@ -205,13 +205,17 @@ function init() {
   let narrow = false;
   function resize() {
     const w = window.innerWidth, h = window.innerHeight;
-    renderer.setSize(w, h, false);
     camera.aspect = w / h;
     narrow = camera.aspect <= 1.05;
+    // phones: lower pixel ratio (GPU cost), push the scene below the copy,
+    // shrink + dim so text always wins
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, narrow ? 1.5 : 2));
+    renderer.setSize(w, h, false);
     if (!narrow) camera.setViewOffset(w, h, -w * 0.18, h * 0.02, w, h);
-    else camera.clearViewOffset();
-    mat.opacity = narrow ? 0.42 : 0.95;
-    group.scale.setScalar(narrow ? 0.66 : 1);
+    else camera.setViewOffset(w, h, 0, -h * 0.24, w, h);
+    mat.opacity = narrow ? 0.34 : 0.95;
+    dust.material.size = narrow ? 0.045 : 0.06;
+    group.scale.setScalar(narrow ? 0.6 : 1);
     camera.updateProjectionMatrix();
   }
   window.addEventListener('resize', resize);

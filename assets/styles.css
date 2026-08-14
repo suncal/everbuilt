@@ -670,6 +670,63 @@ footer::after {
 .cta-band h2 { max-width: 22ch; margin: 0 auto 20px; }
 .cta-band p { color: var(--muted); margin-bottom: 34px; }
 
+/* ---------- Mobile optimization ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  section { padding: 68px 0; }
+  .section-head { margin-bottom: 40px; }
+  .wrap, .wrap-narrow { padding: 0 20px; }
+
+  h1 { font-size: clamp(2.5rem, 11vw, 3.4rem); }
+  h2 { font-size: clamp(1.8rem, 7.5vw, 2.4rem); }
+
+  .hero { min-height: 88svh; padding: 36px 0 70px; }
+  .hero .lede { margin: 22px 0 30px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn { justify-content: center; }
+  .proof-strip { margin-top: 52px; gap: 0 16px; }
+  .proof-strip > div { padding: 20px 0 4px; }
+  .proof-num { font-size: 1.65rem; }
+  .proof-label { font-size: 0.78rem; }
+
+  /* ghost numerals: smaller so they never collide with headings */
+  .section-head[data-num]::before { font-size: 4.5rem; top: -0.7em; }
+
+  .marquee-track { font-size: 1rem; gap: 36px; }
+  .marquee-track span { gap: 36px; }
+
+  .remake { padding: 38px 22px; }
+  .remake-form input[type="text"], .remake-form input[type="email"] { flex-basis: 100%; }
+  .remake-form .btn { width: 100%; justify-content: center; }
+
+  .case-body { padding: 32px 22px; }
+  .case-stats { gap: 18px 20px; }
+  .aud-card { padding: 30px 24px; }
+  .price-card { padding: 34px 24px; }
+  .form-card { padding: 28px 20px; }
+  .care-note { padding: 22px 20px; }
+  .cta-band { padding: 64px 0; }
+  .stat-band { grid-template-columns: 1fr 1fr; gap: 18px; padding: 28px 22px; }
+  .stat-band b { font-size: 1.7rem; }
+  .page-hero { padding: 76px 0 48px; }
+
+  /* mobile GPUs: no backdrop blur, no grain animation */
+  .aud-card, .price-card, .form-card {
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    background: rgba(24, 20, 16, 0.94);
+  }
+  .remake { backdrop-filter: none; }
+  body::before { animation: none; opacity: 0.035; }
+}
+
+/* iOS zooms any focused input under 16px — keep every field at 16px on touch */
+@media (pointer: coarse) {
+  .field input, .field select, .field textarea,
+  .remake-form input[type="text"], .remake-form input[type="email"] {
+    font-size: 16px;
+  }
+}
+
 /* ---------- Motion preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
