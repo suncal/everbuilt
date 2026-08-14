@@ -148,13 +148,42 @@
     })();
   }
 
-  /* ---------- scroll progress bar ---------- */
+  /* ---------- scroll progress bar + back-to-top ---------- */
   var prog = document.createElement('div');
   prog.className = 'scroll-progress';
   document.body.appendChild(prog);
+
+  var toTop = document.createElement('button');
+  toTop.className = 'to-top';
+  toTop.setAttribute('aria-label', 'Back to top');
+  toTop.setAttribute('data-cursor', 'Top');
+  // progress ring (r=22 → circumference ≈ 138.23) + arrow
+  toTop.innerHTML =
+    '<svg viewBox="0 0 48 48" aria-hidden="true">' +
+    '<circle class="tt-track" cx="24" cy="24" r="22"/>' +
+    '<circle class="tt-ring" cx="24" cy="24" r="22" stroke-dasharray="138.23" stroke-dashoffset="138.23"/>' +
+    '<path class="tt-arrow" d="M24 30V18M24 18l-6 6M24 18l6 6"/>' +
+    '</svg>';
+  document.body.appendChild(toTop);
+  var ttRing = toTop.querySelector('.tt-ring');
+  toTop.addEventListener('click', function () {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0);
+      // if the animation loop is throttled (background tab), hard-jump
+      setTimeout(function () {
+        if (window.scrollY > window.innerHeight) window.scrollTo(0, 0);
+      }, 2000);
+    } else {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    }
+  });
+
   window.addEventListener('scroll', function () {
     var max = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    var p = max > 0 ? window.scrollY / max : 0;
+    prog.style.width = (p * 100) + '%';
+    ttRing.style.strokeDashoffset = (138.23 * (1 - p)).toFixed(1);
+    toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.8);
   }, { passive: true });
 
   /* ---------- chapter rail (index only, desktop) ---------- */
