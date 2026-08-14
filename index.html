@@ -60,11 +60,19 @@
 </nav>
 
 <!-- ============ HERO ============ -->
-<header class="hero">
+<header class="hero hero-dark">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap hero-inner">
     <p class="kicker">Web &amp; app studio</p>
-    <h1>Websites and apps you <em>own outright.</em></h1>
+    <h1>
+      <span class="hw-wrap"><span class="hw">Websites</span></span>
+      <span class="hw-wrap"><span class="hw">and</span></span>
+      <span class="hw-wrap"><span class="hw">apps</span></span>
+      <span class="hw-wrap"><span class="hw">you</span></span>
+      <em><span class="hw-wrap"><span class="hw">own</span></span>
+      <span class="hw-wrap"><span class="hw">outright.</span></span></em>
+    </h1>
     <p class="lede">Agency-quality builds delivered in days — with <strong>$0/month hosting, forever</strong>. No subscriptions. No lock-in. No renting your own website back from an agency.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#contact">Get a free remake of your site</a>
@@ -90,7 +98,15 @@
       </div>
     </div>
   </div>
+  <div class="scroll-hint"><span>Scroll</span><i></i></div>
 </header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track"><span>
+    Own it outright <em>✦</em> $0/month hosting <em>✦</em> Days, not months <em>✦</em> No lock-in <em>✦</em> Agency quality <em>✦</em> Built once, yours forever <em>✦</em>
+  </span></div>
+</div>
 
 <!-- ============ REMAKE OFFER ============ -->
 <section id="remake" style="padding-top: 20px;">
@@ -98,8 +114,17 @@
     <div class="remake reveal">
       <p class="kicker" style="color:#E8845C;">The Everbuilt way to say hello</p>
       <h2>We don't send proposals. We send your website — already remade.</h2>
-      <p>Tell us your current website address. We'll build a finished, premium remake of your homepage and send you a live link — free, no strings, no meeting required. If you love it, we finish the job. If not, you've lost nothing and seen exactly what we can do.</p>
-      <a class="btn btn-primary" href="#contact">Request your free remake</a>
+      <p>Tell us your current website address. We'll build a finished, premium remake of your homepage and send you a live link — free, no strings, no meeting required. If you love it, we finish the job. If you don't, walk away and keep the design.</p>
+      <form class="remake-form" action="https://formsubmit.co/sunnyatlanta20@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="FREE REMAKE request — Everbuilt">
+        <input type="hidden" name="_next" value="">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="current_website" placeholder="yourdomain.com" required aria-label="Your current website">
+        <input type="email" name="email" placeholder="you@email.com" required aria-label="Your email">
+        <button class="btn btn-primary" type="submit">Remake my site — free</button>
+      </form>
+      <p class="remake-note">No call required. No payment details. Just your URL.</p>
     </div>
   </div>
 </section>
@@ -132,8 +157,8 @@
         <p class="muted" style="font-size:0.96rem;">A national nonprofit touring all 50 states for America's 250th anniversary needed their aging WordPress site replaced — galleries at massive scale, an events system their team could update themselves, and a live domain cutover that couldn't go dark.</p>
         <div class="case-stats">
           <div><b>$0/mo</b><span>hosting after launch</span></div>
-          <div><b>2,100+</b><span>photos processed &amp; optimized</span></div>
-          <div><b>78 GB</b><span>of raw client media handled</span></div>
+          <div><b data-count="2100" data-suffix="+">2,100+</b><span>photos processed &amp; optimized</span></div>
+          <div><b data-count="78" data-suffix=" GB">78 GB</b><span>of raw client media handled</span></div>
           <div><b>0 min</b><span>downtime during DNS cutover</span></div>
         </div>
         <p style="font-size:0.95rem; color:var(--ink-soft);">Delivered for <strong>$7,500</strong> — a build agencies quote at $35–60K — including an admin panel their team uses without touching code.</p>
@@ -248,6 +273,7 @@
       <p class="kicker">Pricing</p>
       <h2>One price. You own it. That's the whole model.</h2>
       <p class="muted">50% deposit to start, balance at launch. Every package includes 90 days of free care after launch.</p>
+      <p class="muted" style="margin-top:10px;"><strong style="color:var(--ink);">For perspective:</strong> design subscriptions run $2,500–$4,995 <em>per month</em> — $30K–60K a year, forever. Here, you pay once and own it.</p>
     </div>
     <div class="price-grid">
       <div class="price-card reveal">
@@ -310,19 +336,19 @@
     </div>
     <div class="steps">
       <div class="step reveal">
-        <h3>See it first</h3>
+        <h3><span class="step-day">Day 0</span>See it first</h3>
         <p>Request a free remake. We send a finished, live preview of your new homepage — before you've paid a cent or sat through a single pitch meeting.</p>
       </div>
       <div class="step reveal">
-        <h3>Say yes</h3>
+        <h3><span class="step-day">Day 1</span>Say yes</h3>
         <p>Love it? Pick a package, pay the 50% deposit, and send us your content. We handle everything else — photos, copy polish, forms, the lot.</p>
       </div>
       <div class="step reveal">
-        <h3>We build in days</h3>
+        <h3><span class="step-day">Days 2–5</span>We build</h3>
         <p>Full site built and staged at a private preview link. You comment, we revise same-day. Balance is due only when you approve.</p>
       </div>
       <div class="step reveal">
-        <h3>Launch &amp; own</h3>
+        <h3><span class="step-day">Days 6–7</span>Launch &amp; own</h3>
         <p>Zero-downtime cutover on your domain. You get the keys — code, admin access, everything — plus 90 days of free care.</p>
       </div>
     </div>
@@ -356,6 +382,14 @@
       <details class="faq-item">
         <summary>What happens to my email and domain during launch?</summary>
         <div class="faq-a">Nothing — and we put that in writing. Your domain stays at your current registrar; we change only the web records and never touch email. Our cutover runbook launched a national site with zero minutes of downtime.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Why are you so much cheaper than agencies — and pricier than Fiverr?</summary>
+        <div class="faq-a">Agencies carry account managers, discovery workshops, and office overhead into every quote — that's the $35–60K. Marketplace gigs hand you a template and disappear — that's the $500. We're a lean studio with a productized build system proven on a national launch: you get agency-grade output without agency overhead, and unlike the cheap option, you own a site that's architected to run free forever.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if I don't like the free remake?</summary>
+        <div class="faq-a">Then you tell us, and that's the end of it — no follow-up sequence, no pressure calls. You keep the design. The remake is our pitch; if it doesn't win you over on sight, we haven't earned the project.</div>
       </details>
       <details class="faq-item">
         <summary>What if I need a web app or mobile app, not a website?</summary>
@@ -450,37 +484,10 @@
   <div class="wrap" style="margin-top: 30px; font-size: 0.8rem;">© <span id="year"></span> Everbuilt Studio. All rights reserved.</div>
 </footer>
 
-<script>
-  // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Redirect target for the form (must be absolute for FormSubmit)
-  document.getElementById('next-url').value =
-    location.origin + location.pathname.replace(/index\.html$/, '').replace(/\/$/, '') + '/thanks.html';
-
-  // Mobile nav
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.querySelector('.nav-links');
-  toggle.addEventListener('click', function () {
-    var open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  links.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') links.classList.remove('open');
-  });
-
-  // Reveal on scroll
-  var reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(function (el) { io.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('in'); });
-  }
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="assets/main.js"></script>
+<script type="module" src="assets/hero3d.js"></script>
 </body>
 </html>

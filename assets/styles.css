@@ -441,3 +441,143 @@ footer {
 .cta-band { text-align: center; padding: 80px 0; }
 .cta-band h2 { max-width: 22ch; margin: 0 auto 18px; }
 .cta-band p { color: var(--muted); margin-bottom: 32px; }
+
+/* ============================================================
+   INTERACTIVE UPGRADE — dark 3D hero, cursor, marquee, motion
+   ============================================================ */
+
+/* ---------- Dark cinematic hero ---------- */
+.hero.hero-dark {
+  background: radial-gradient(ellipse 120% 90% at 70% 10%, #1d1913 0%, #12100c 55%, #0c0a07 100%);
+  color: #f5f1e8;
+  min-height: 92vh;
+  display: flex; align-items: center;
+  padding: 40px 0 60px;
+}
+.hero-dark .hero-grid {
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(245,241,232,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,241,232,0.5) 1px, transparent 1px);
+}
+#hero-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.hero-dark .hero-inner { width: 100%; }
+.hero-dark h1 { color: #f9f6ef; text-shadow: 0 2px 30px rgba(0,0,0,0.45); }
+.hero-dark h1 em { color: #e8663a; }
+.hero-dark .lede { color: #cfc8ba; text-shadow: 0 1px 16px rgba(0,0,0,0.5); }
+.hero-dark .lede strong { color: #f5f1e8; }
+.hero-dark .kicker { color: #e8663a; }
+.hero-dark .kicker::before { background: #e8663a; }
+.hero-dark .btn-ghost { border-color: rgba(245,241,232,0.7); color: #f5f1e8; }
+.hero-dark .btn-ghost:hover { background: #f5f1e8; color: var(--ink); }
+.hero-dark .proof-strip { border-top-color: rgba(245,241,232,0.16); }
+.hero-dark .proof-strip > div { border-left-color: rgba(245,241,232,0.16); }
+.hero-dark .proof-num { color: #f9f6ef; }
+.hero-dark .proof-num small { color: #e8663a; }
+.hero-dark .proof-label { color: #97907f; }
+
+/* headline word-split wrappers */
+.hw-wrap { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.hw { display: inline-block; will-change: transform; }
+
+/* scroll hint */
+.scroll-hint {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #97907f; pointer-events: none;
+}
+.scroll-hint i {
+  width: 1px; height: 34px; background: linear-gradient(#e8663a, transparent);
+  display: block; animation: hint-drop 1.6s ease-in-out infinite;
+}
+@keyframes hint-drop {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ---------- Nav behavior ---------- */
+.nav { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.nav-hidden { transform: translateY(-100%); }
+.nav-solid { box-shadow: 0 10px 30px rgba(23,20,15,0.08); }
+
+/* ---------- Custom cursor ---------- */
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  pointer-events: none; border-radius: 50%;
+}
+.cursor-dot {
+  width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px;
+  background: var(--accent);
+}
+.cursor-ring {
+  width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  border: 1.5px solid rgba(194, 72, 27, 0.55);
+  transition: width 0.25s, height 0.25s, margin 0.25s, background 0.25s;
+}
+.cursor-ring.cursor-hot {
+  width: 54px; height: 54px; margin: -27px 0 0 -27px;
+  background: rgba(194, 72, 27, 0.08);
+}
+@media (pointer: coarse) { .cursor-dot, .cursor-ring { display: none; } }
+
+/* ---------- Marquee band ---------- */
+.marquee {
+  background: var(--ink); color: #f5f1e8;
+  overflow: hidden; padding: 18px 0;
+  transform: rotate(-1.2deg) scale(1.02);
+  margin: 10px 0;
+}
+.marquee-track {
+  display: flex; gap: 48px; width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
+  white-space: nowrap;
+}
+.marquee-track span { display: flex; align-items: center; gap: 48px; }
+.marquee-track em { color: #e8663a; font-style: normal; }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .scroll-hint i { animation: none; }
+}
+
+/* ---------- Remake band mini-form ---------- */
+.remake-form {
+  display: flex; gap: 12px; flex-wrap: wrap; position: relative;
+  max-width: 640px;
+}
+.remake-form input[type="text"], .remake-form input[type="email"] {
+  flex: 1 1 180px; padding: 14px 18px;
+  border: 1.5px solid rgba(245,241,232,0.25); border-radius: 999px;
+  background: rgba(245,241,232,0.08); color: #f5f1e8;
+  font-family: var(--font-body); font-size: 0.95rem;
+}
+.remake-form input::placeholder { color: #97907f; }
+.remake-form input:focus { outline: none; border-color: #e8663a; }
+.remake-note {
+  font-size: 0.82rem !important; color: #97907f !important;
+  margin: 14px 0 0 !important; position: relative;
+}
+/* step day labels */
+.step-day {
+  display: block; font-family: var(--font-body); font-size: 0.72rem;
+  font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 6px;
+}
+
+/* cards need perspective smoothing for tilt */
+.aud-card, .price-card, .case { will-change: transform; }
+
+/* buttons transform from JS — kill the CSS hover translate to avoid fighting */
+.btn { will-change: transform; }

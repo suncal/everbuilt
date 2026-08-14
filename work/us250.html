@@ -54,9 +54,9 @@
 <section style="padding-top: 56px;">
   <div class="wrap">
     <div class="stat-band">
-      <div><b>$7,500</b><span>total build cost — vs $35–60K agency quotes</span></div>
-      <div><b>78 GB</b><span>of raw client media received &amp; processed</span></div>
-      <div><b>2,100+</b><span>photos optimized, renamed, and published</span></div>
+      <div><b data-count="7500" data-prefix="$">$7,500</b><span>total build cost — vs $35–60K agency quotes</span></div>
+      <div><b data-count="78" data-suffix=" GB">78 GB</b><span>of raw client media received &amp; processed</span></div>
+      <div><b data-count="2100" data-suffix="+">2,100+</b><span>photos optimized, renamed, and published</span></div>
       <div><b>$0/mo</b><span>hosting cost since launch day</span></div>
     </div>
 
@@ -112,14 +112,9 @@
   <div class="wrap" style="margin-top: 30px; font-size: 0.8rem;">© <span id="year"></span> Everbuilt Studio. All rights reserved.</div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.querySelector('.nav-links');
-  toggle.addEventListener('click', function () {
-    var open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="../assets/main.js"></script>
 </body>
 </html>

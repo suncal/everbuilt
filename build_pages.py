@@ -228,15 +228,10 @@ TEMPLATE = """<!DOCTYPE html>
   <div class="wrap" style="margin-top: 30px; font-size: 0.8rem;">© <span id="year"></span> Everbuilt Studio. All rights reserved.</div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.querySelector('.nav-links');
-  toggle.addEventListener('click', function () {{
-    var open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  }});
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="../assets/main.js"></script>
 </body>
 </html>
 """
