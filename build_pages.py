@@ -147,8 +147,8 @@ TEMPLATE = """<!DOCTYPE html>
   <div class="wrap nav-inner">
     <a class="brand" href="../index.html">
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="24" height="24" rx="5" fill="#17140F"/>
-        <path d="M7 8h12M7 13h9M7 18h12" stroke="#C2481B" stroke-width="2.4" stroke-linecap="round"/>
+        <rect x="1" y="1" width="24" height="24" rx="5" fill="#F2EDE4"/>
+        <path d="M7 8h12M7 13h9M7 18h12" stroke="#FF5A28" stroke-width="2.4" stroke-linecap="round"/>
       </svg>
       Everbuilt<span>.</span>
     </a>

@@ -36,12 +36,14 @@
 </head>
 <body>
 
+<canvas id="scene-canvas" aria-hidden="true"></canvas>
+
 <nav class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="index.html" aria-label="Everbuilt Studio home">
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="24" height="24" rx="5" fill="#17140F"/>
-        <path d="M7 8h12M7 13h9M7 18h12" stroke="#C2481B" stroke-width="2.4" stroke-linecap="round"/>
+        <rect x="1" y="1" width="24" height="24" rx="5" fill="#F2EDE4"/>
+        <path d="M7 8h12M7 13h9M7 18h12" stroke="#FF5A28" stroke-width="2.4" stroke-linecap="round"/>
       </svg>
       Everbuilt<span>.</span>
     </a>
@@ -61,8 +63,6 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero hero-dark">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap hero-inner">
     <p class="kicker">Web &amp; app studio</p>
     <h1>
@@ -112,7 +112,7 @@
 <section id="remake" style="padding-top: 20px;">
   <div class="wrap">
     <div class="remake reveal">
-      <p class="kicker" style="color:#E8845C;">The Everbuilt way to say hello</p>
+      <p class="kicker">01 — The offer</p>
       <h2>We don't send proposals. We send your website — already remade.</h2>
       <p>Tell us your current website address. We'll build a finished, premium remake of your homepage and send you a live link — free, no strings, no meeting required. If you love it, we finish the job. If you don't, walk away and keep the design.</p>
       <form class="remake-form" action="https://formsubmit.co/sunnyatlanta20@gmail.com" method="POST">
@@ -133,7 +133,7 @@
 <section id="work">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Flagship case study</p>
+      <p class="kicker">02 — Flagship work</p>
       <h2>A national nonprofit tour, launched with zero downtime</h2>
     </div>
     <div class="case reveal">
@@ -172,7 +172,7 @@
 <section id="audiences" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Who we build for</p>
+      <p class="kicker">03 — Who we build for</p>
       <h2>One studio. Four kinds of builds.</h2>
       <p class="muted">The same architecture — premium, fast, $0/month — shaped to what you actually need.</p>
     </div>
@@ -209,7 +209,7 @@
 <section id="different">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Why Everbuilt exists</p>
+      <p class="kicker">04 — The difference</p>
       <h2>Everyone else rents. We build.</h2>
       <p class="muted">Agencies rent you your own website back at $200–500/month. DIY builders charge forever and still look DIY. We architect sites that cost nothing to run — and hand you the keys.</p>
     </div>
@@ -270,7 +270,7 @@
 <section id="pricing" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Pricing</p>
+      <p class="kicker">05 — Pricing</p>
       <h2>One price. You own it. That's the whole model.</h2>
       <p class="muted">50% deposit to start, balance at launch. Every package includes 90 days of free care after launch.</p>
       <p class="muted" style="margin-top:10px;"><strong style="color:var(--ink);">For perspective:</strong> design subscriptions run $2,500–$4,995 <em>per month</em> — $30K–60K a year, forever. Here, you pay once and own it.</p>
@@ -331,7 +331,7 @@
 <section id="process">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">How it works</p>
+      <p class="kicker">06 — Process</p>
       <h2>From hello to launched, in four steps</h2>
     </div>
     <div class="steps">
@@ -359,7 +359,7 @@
 <section id="faq" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Questions</p>
+      <p class="kicker">07 — FAQ</p>
       <h2>The things everyone asks</h2>
     </div>
     <div class="faq-list reveal">
@@ -404,7 +404,7 @@
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <p class="kicker">Start a project</p>
+        <p class="kicker">08 — Start a project</p>
         <h2>Get your free remake</h2>
         <p>Tell us where your website lives today — or what you want to build — and we'll come back within one business day. If you have an existing site, we'll usually just send you the remade version.</p>
         <ul class="contact-points">
@@ -487,6 +487,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="assets/main.js"></script>
-<script type="module" src="assets/hero3d.js"></script>
+<script type="module" src="assets/scene.js"></script>
 </body>
 </html>

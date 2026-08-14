@@ -125,6 +125,8 @@
     tl.from('.hero-ctas', { y: 26, opacity: 0, duration: 0.7 }, 0.9);
     tl.from('.proof-strip > div', { y: 30, opacity: 0, duration: 0.7, stagger: 0.09 }, 1.0);
     tl.from('.scroll-hint', { opacity: 0, duration: 0.6 }, 1.4);
+    // safety: if rAF was throttled (background tab), snap the intro complete
+    setTimeout(function () { tl.progress(1); }, 3500);
   }
 
   /* ---------- scroll reveals ----------
