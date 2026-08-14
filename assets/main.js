@@ -55,24 +55,155 @@
     });
   }
 
-  /* ---------- custom cursor (desktop only) ---------- */
+  /* ---------- viewfinder cursor (desktop only) ----------
+     Four corner brackets orbit the pointer as a rotating diamond; near an
+     interactive element they fly out and LOCK onto its corners like a
+     camera viewfinder, with a contextual verb label. */
   if (fine && !reduced) {
-    var dot = document.createElement('div'); dot.className = 'cursor-dot';
-    var ring = document.createElement('div'); ring.className = 'cursor-ring';
-    document.body.appendChild(dot); document.body.appendChild(ring);
-    var rx = -100, ry = -100, dx = -100, dy = -100;
+    document.documentElement.classList.add('has-cursor');
+    var curDot = document.createElement('div'); curDot.className = 'cur-dot';
+    var curLabel = document.createElement('div'); curLabel.className = 'cur-label';
+    var brackets = [];
+    for (var bi = 0; bi < 4; bi++) {
+      var b = document.createElement('div');
+      b.className = 'cur-b cur-b' + bi;
+      document.body.appendChild(b);
+      brackets.push({ el: b, x: -100, y: -100 });
+    }
+    document.body.appendChild(curDot);
+    document.body.appendChild(curLabel);
+
+    var px = -100, py = -100;       // pointer
+    var lockEl = null;              // element the viewfinder is locked onto
+    var HOT = 'a, button, summary, input, select, textarea, [data-cursor]';
+
+    function verbFor(el) {
+      if (el.dataset.cursor) return el.dataset.cursor;
+      var tag = el.tagName;
+      if (tag === 'A') return 'OPEN';
+      if (tag === 'BUTTON') return el.type === 'submit' ? 'SEND' : 'GO';
+      if (tag === 'SUMMARY') return 'READ';
+      if (tag === 'SELECT') return 'PICK';
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return 'TYPE';
+      return 'VIEW';
+    }
+
     window.addEventListener('pointermove', function (e) {
-      dx = e.clientX; dy = e.clientY;
-      dot.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
-      var hot = e.target.closest('a, button, summary, input, select, textarea, .aud-card');
-      ring.classList.toggle('cursor-hot', !!hot);
+      px = e.clientX; py = e.clientY;
+      curDot.style.transform = 'translate(' + px + 'px,' + py + 'px)';
+      var hot = e.target.closest ? e.target.closest(HOT) : null;
+      if (hot !== lockEl) {
+        lockEl = hot;
+        if (lockEl) {
+          curLabel.textContent = verbFor(lockEl);
+          curLabel.classList.add('on');
+          curDot.classList.add('locked');
+        } else {
+          curLabel.classList.remove('on');
+          curDot.classList.remove('locked');
+        }
+      }
     }, { passive: true });
-    (function follow() {
-      rx += (dx - rx) * 0.16; ry += (dy - ry) * 0.16;
-      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
-      requestAnimationFrame(follow);
+
+    window.addEventListener('pointerdown', function () {
+      curDot.classList.add('pulse');
+      setTimeout(function () { curDot.classList.remove('pulse'); }, 260);
+    }, { passive: true });
+
+    (function orbit() {
+      var t = performance.now() / 1000;
+      var targets = [];
+      if (lockEl && document.contains(lockEl)) {
+        var r = lockEl.getBoundingClientRect();
+        var pad = 7;
+        // off-screen lock targets? release
+        if (r.bottom < 0 || r.top > window.innerHeight) {
+          lockEl = null; curLabel.classList.remove('on'); curDot.classList.remove('locked');
+        } else {
+          targets = [
+            [r.left - pad, r.top - pad, 0],
+            [r.right + pad, r.top - pad, 90],
+            [r.right + pad, r.bottom + pad, 180],
+            [r.left - pad, r.bottom + pad, 270],
+          ];
+          curLabel.style.transform = 'translate(' + (r.right + 14) + 'px,' + (r.top - 10) + 'px)';
+        }
+      }
+      if (!targets.length) {
+        // idle: rotating diamond around the pointer
+        var rad = 17;
+        for (var i = 0; i < 4; i++) {
+          var a = t * 1.4 + i * Math.PI / 2;
+          targets.push([px + Math.cos(a) * rad, py + Math.sin(a) * rad, (a * 180 / Math.PI) + 135]);
+        }
+        curLabel.style.transform = 'translate(' + (px + 22) + 'px,' + (py + 18) + 'px)';
+      }
+      for (var j = 0; j < 4; j++) {
+        var bk = brackets[j];
+        bk.x += (targets[j][0] - bk.x) * 0.22;
+        bk.y += (targets[j][1] - bk.y) * 0.22;
+        bk.el.style.transform = 'translate(' + bk.x + 'px,' + bk.y + 'px) rotate(' + targets[j][2] + 'deg)';
+      }
+      requestAnimationFrame(orbit);
     })();
   }
+
+  /* ---------- scroll progress bar ---------- */
+  var prog = document.createElement('div');
+  prog.className = 'scroll-progress';
+  document.body.appendChild(prog);
+  window.addEventListener('scroll', function () {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+  }, { passive: true });
+
+  /* ---------- chapter rail (index only, desktop) ---------- */
+  var railSections = [];
+  document.querySelectorAll('section[id]').forEach(function (sec) {
+    var k = sec.querySelector('.kicker');
+    if (k && /^\d\d/.test(k.textContent.trim())) {
+      railSections.push({ id: sec.id, num: k.textContent.trim().slice(0, 2), el: sec });
+    }
+  });
+  if (railSections.length >= 4) {
+    var rail = document.createElement('nav');
+    rail.className = 'rail';
+    rail.setAttribute('aria-label', 'Sections');
+    railSections.forEach(function (s) {
+      var a = document.createElement('a');
+      a.href = '#' + s.id;
+      a.className = 'rail-dot';
+      a.innerHTML = '<span>' + s.num + '</span>';
+      a.setAttribute('data-cursor', 'JUMP');
+      rail.appendChild(a);
+      s.link = a;
+    });
+    document.body.appendChild(rail);
+    var railTick = false;
+    function railSync() {
+      railTick = false;
+      var mid = window.scrollY + window.innerHeight * 0.5;
+      var active = railSections[0];
+      railSections.forEach(function (s) {
+        if (s.el.offsetTop <= mid) active = s;
+      });
+      railSections.forEach(function (s) {
+        s.link.classList.toggle('on', s === active);
+      });
+    }
+    window.addEventListener('scroll', function () {
+      if (!railTick) { railTick = true; setTimeout(railSync, 120); }
+    }, { passive: true });
+    railSync();
+  }
+
+  /* ---------- ghost numerals behind section headings ---------- */
+  document.querySelectorAll('.section-head').forEach(function (head) {
+    var k = head.querySelector('.kicker');
+    if (k && /^\d\d/.test(k.textContent.trim())) {
+      head.setAttribute('data-num', k.textContent.trim().slice(0, 2));
+    }
+  });
 
   /* ---------- magnetic buttons ---------- */
   if (fine && !reduced) {
