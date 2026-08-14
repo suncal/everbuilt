@@ -23,7 +23,8 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* NOTE: no `scroll-behavior: smooth` here — it fights Lenis (frame-by-frame
+   scroll writes get browser-animated → page freezes). Lenis owns smoothness. */
 
 body {
   font-family: var(--font-body);

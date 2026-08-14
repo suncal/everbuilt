@@ -6,8 +6,6 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = window.matchMedia('(pointer: fine)').matches;
   var hasGsap = typeof gsap !== 'undefined';
-  var hasST = hasGsap && typeof ScrollTrigger !== 'undefined';
-  if (hasST) gsap.registerPlugin(ScrollTrigger);
 
   /* ---------- footer year ---------- */
   var yearEl = document.getElementById('year');
@@ -41,13 +39,8 @@
   /* ---------- smooth scrolling (Lenis) ---------- */
   if (!reduced && typeof Lenis !== 'undefined') {
     var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-    if (hasST) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })(0);
-    }
+    window.__lenis = lenis; // debug/verification handle
+    (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })(0);
     // anchor links through Lenis
     document.querySelectorAll('a[href*="#"]').forEach(function (a) {
       a.addEventListener('click', function () {
@@ -134,49 +127,45 @@
     tl.from('.scroll-hint', { opacity: 0, duration: 0.6 }, 1.4);
   }
 
-  /* ---------- scroll reveals ---------- */
+  /* ---------- scroll reveals ----------
+     Class-based on purpose: a killed tween can leave an element frozen
+     invisible when the user blasts past its trigger zone (scrollbar yank,
+     anchor jump). A class + CSS transition can't be interrupted that way. */
   var reveals = document.querySelectorAll('.reveal');
-  if (hasST && !reduced) {
-    reveals.forEach(function (el) { el.classList.add('in'); }); // neutralize CSS fallback
-    reveals.forEach(function (el) {
-      gsap.from(el, {
-        y: 44, opacity: 0, duration: 0.9, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 86%', once: true },
+  if ('IntersectionObserver' in window && !reduced) {
+    // stagger siblings that arrive in the same frame
+    var lastTime = 0, burst = 0;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var now = performance.now();
+        burst = (now - lastTime < 120) ? burst + 1 : 0;
+        lastTime = now;
+        en.target.style.transitionDelay = Math.min(burst * 90, 450) + 'ms';
+        en.target.classList.add('in');
+        io.unobserve(en.target);
       });
-    });
-    // section headers get a little extra
-    document.querySelectorAll('.section-head h2').forEach(function (h) {
-      gsap.from(h, {
-        clipPath: 'inset(0 0 100% 0)', y: 20, duration: 0.8, ease: 'power2.out',
-        scrollTrigger: { trigger: h, start: 'top 88%', once: true },
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+    // belt-and-braces: IO can lag behind fast scrolling in some engines —
+    // a throttled position check guarantees nothing stays invisible
+    var checking = false;
+    function sweep() {
+      checking = false;
+      reveals.forEach(function (el) {
+        if (!el.classList.contains('in')) {
+          // anything at or above the viewport line counts as seen —
+          // scrolled-past sections must never sit invisible on scroll-up
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.98) el.classList.add('in');
+        }
       });
-    });
-    // compare table rows cascade
-    document.querySelectorAll('.compare tbody tr').forEach(function (row, i) {
-      gsap.from(row, {
-        opacity: 0, x: -24, duration: 0.5, delay: i * 0.06, ease: 'power2.out',
-        scrollTrigger: { trigger: '.compare', start: 'top 80%', once: true },
-      });
-    });
-    // process steps draw their top border
-    document.querySelectorAll('.step').forEach(function (step, i) {
-      gsap.from(step, {
-        opacity: 0, y: 30, duration: 0.6, delay: i * 0.12, ease: 'power2.out',
-        scrollTrigger: { trigger: '.steps', start: 'top 82%', once: true },
-      });
-    });
-  } else {
-    // IntersectionObserver fallback (no GSAP): original behavior
-    if ('IntersectionObserver' in window && !reduced) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-        });
-      }, { threshold: 0.12 });
-      reveals.forEach(function (el) { io.observe(el); });
-    } else {
-      reveals.forEach(function (el) { el.classList.add('in'); });
     }
+    window.addEventListener('scroll', function () {
+      if (!checking) { checking = true; setTimeout(sweep, 150); }
+    }, { passive: true });
+    setTimeout(sweep, 3000);
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
   /* ---------- animated counters ---------- */
