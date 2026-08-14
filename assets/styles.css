@@ -383,6 +383,14 @@ section { padding: 110px 0; }
 .compare td:first-child { font-weight: 600; white-space: nowrap; color: var(--ink); }
 .compare .no { color: var(--muted); }
 .compare .yes { color: var(--ok); font-weight: 600; }
+.table-hint {
+  display: none;
+  margin-top: 12px;
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--muted);
+}
+.table-hint em { color: var(--accent); font-style: normal; }
 
 /* ---------- Pricing ---------- */
 .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
@@ -738,6 +746,20 @@ footer::after {
   .stat-band { grid-template-columns: 1fr 1fr; gap: 18px; padding: 28px 22px; }
   .stat-band b { font-size: 1.7rem; }
   .page-hero { padding: 76px 0 48px; }
+
+  /* comparison table: sticky label column + swipeable value columns
+     (border-collapse: separate — sticky cells don't pin under collapse) */
+  .compare { font-size: 0.84rem; border-collapse: separate; border-spacing: 0; overflow: visible; }
+  .compare th, .compare td { padding: 12px 14px; }
+  .compare td:first-child, .compare thead th:first-child {
+    position: sticky; left: 0; z-index: 3;
+    background: #14110D;
+    white-space: normal;
+    min-width: 104px; max-width: 124px;
+    box-shadow: 6px 0 12px rgba(11, 9, 8, 0.55);
+  }
+  .compare thead th:first-child { background: #1E1A15; }
+  .table-hint { display: block; }
 
   /* mobile GPUs: no backdrop blur, no grain animation */
   .aud-card, .price-card, .form-card {
