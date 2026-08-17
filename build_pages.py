@@ -428,7 +428,7 @@ FOOTER = """<footer>
 </footer>"""
 
 SCRIPTS = """<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="{root}assets/main.js"></script>"""
+<script src="{root}assets/main.js?v=20260817"></script>"""
 
 HEAD = """<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -445,7 +445,7 @@ HEAD = """<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{root}assets/styles.css">"""
+<link rel="stylesheet" href="{root}assets/styles.css?v=20260817">"""
 
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
