@@ -369,3 +369,77 @@
     el.value = nextVal;
   });
 })();
+
+/* ============================================================
+   Live immersive previews.
+
+   Each .imm-thumb[data-live] hosts a real, running copy of the
+   demo in embed mode — it scrolls itself, so the card shows the
+   actual effect instead of a screenshot.
+
+   Rules that keep this cheap and safe:
+   - mounted only while near the viewport, torn down when far away,
+     so two WebGL contexts never idle in the background;
+   - rendered at a fixed 1100x619 and CSS-scaled to fit, so the frame
+     shows the real desktop layout rather than a squeezed mobile one;
+   - pointer-events:none, so a visitor scrolling over a card scrolls
+     the page — the frame can never trap the wheel;
+   - skipped entirely under prefers-reduced-motion, leaving the
+     static CSS poster in place.
+   ============================================================ */
+(function () {
+  var hosts = [].slice.call(document.querySelectorAll('.imm-thumb[data-live]'));
+  if (!hosts.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var BASE_W = 1100;
+
+  function fit(host) {
+    var f = host.querySelector('iframe');
+    if (f) f.style.transform = 'scale(' + (host.clientWidth / BASE_W) + ')';
+  }
+
+  function mount(host) {
+    if (host.querySelector('iframe')) return;
+
+    var tag = document.createElement('span');
+    tag.className = 'imm-live-tag';
+    tag.innerHTML = '<i></i>Live';
+    host.appendChild(tag);
+
+    var f = document.createElement('iframe');
+    f.title = 'Live preview of the immersive demo';
+    f.setAttribute('scrolling', 'no');
+    f.setAttribute('tabindex', '-1');
+    f.setAttribute('aria-hidden', 'true');
+    f.setAttribute('loading', 'lazy');
+    f.addEventListener('load', function () {
+      host.classList.add('is-live');
+      fit(host);
+    });
+    f.src = host.getAttribute('data-live');
+    host.appendChild(f);
+    fit(host);
+  }
+
+  function unmount(host) {
+    var f = host.querySelector('iframe');
+    if (f) f.remove();
+    var tag = host.querySelector('.imm-live-tag');
+    if (tag) tag.remove();
+    host.classList.remove('is-live');
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { mount(e.target); } else { unmount(e.target); }
+      });
+    }, { rootMargin: '500px 0px' });
+    hosts.forEach(function (h) { io.observe(h); });
+  } else {
+    hosts.forEach(mount);
+  }
+
+  window.addEventListener('resize', function () { hosts.forEach(fit); }, { passive: true });
+})();

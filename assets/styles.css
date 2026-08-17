@@ -793,3 +793,120 @@ footer::after {
   .scroll-hint i { animation: none; }
   body::before { animation: none; }
 }
+
+/* ============================================================
+   IMMERSIVE BUILDS — the 3D option, offered alongside the
+   standard build so visitors can pick for themselves.
+   ============================================================ */
+.imm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.imm-card {
+  background: rgba(24, 20, 16, 0.72);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line); border-radius: 18px;
+  overflow: hidden; text-decoration: none; display: block;
+  box-shadow: inset 0 1px 0 rgba(242, 237, 228, 0.06);
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+  will-change: transform;
+}
+.imm-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 60px rgba(255, 90, 40, 0.12);
+  border-color: rgba(255, 90, 40, 0.55);
+}
+.imm-body { padding: 28px 30px 32px; }
+.imm-card h3 { margin-bottom: 10px; color: var(--ink); font-size: 1.35rem; }
+.imm-card p { font-size: 0.95rem; color: var(--muted); margin-bottom: 18px; }
+.imm-card .go { font-weight: 600; font-size: 0.92rem; color: var(--accent); }
+
+/* CSS-only previews of each treatment — no video, no extra weight */
+.imm-thumb {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+  background: radial-gradient(ellipse 80% 70% at 50% 55%, #241d16 0%, #0B0908 72%);
+  border-bottom: 1px solid var(--line);
+}
+.imm-thumb span {
+  position: absolute; left: 50%; top: 50%; border-radius: 50%;
+  border: 1px solid rgba(242, 237, 228, 0.26);
+  transform: translate(-50%, -50%);
+}
+/* corridor: concentric gates receding down a tunnel */
+.imm-thumb--corridor span:nth-child(1) { width: 88%; height: 150%; }
+.imm-thumb--corridor span:nth-child(2) { width: 62%; height: 105%; border-color: rgba(255, 90, 40, 0.5); }
+.imm-thumb--corridor span:nth-child(3) { width: 38%; height: 64%; }
+.imm-thumb--corridor span:nth-child(4) { width: 17%; height: 29%; border-color: rgba(255, 90, 40, 0.75); }
+.imm-card:hover .imm-thumb--corridor span { animation: immFly 2.4s linear infinite; }
+.imm-card:hover .imm-thumb--corridor span:nth-child(2) { animation-delay: -0.6s; }
+.imm-card:hover .imm-thumb--corridor span:nth-child(3) { animation-delay: -1.2s; }
+.imm-card:hover .imm-thumb--corridor span:nth-child(4) { animation-delay: -1.8s; }
+@keyframes immFly {
+  from { transform: translate(-50%, -50%) scale(0.18); opacity: 0; }
+  22%  { opacity: 1; }
+  to   { transform: translate(-50%, -50%) scale(2.1); opacity: 0; }
+}
+/* orbit: one form with a shell around it */
+.imm-thumb--orbit span:nth-child(1) {
+  width: 40%; height: 71%; border-radius: 42% 58% 55% 45% / 52% 45% 55% 48%;
+  border-color: rgba(242, 237, 228, 0.5);
+  background: linear-gradient(150deg, rgba(242, 237, 228, 0.22), rgba(255, 90, 40, 0.16));
+}
+.imm-thumb--orbit span:nth-child(2) {
+  width: 66%; height: 117%; border-color: rgba(255, 90, 40, 0.4);
+  border-radius: 46% 54% 50% 50% / 50% 48% 52% 50%;
+}
+.imm-card:hover .imm-thumb--orbit span { animation: immSpin 9s linear infinite; }
+.imm-card:hover .imm-thumb--orbit span:nth-child(2) { animation-direction: reverse; animation-duration: 13s; }
+@keyframes immSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.imm-note {
+  margin-top: 26px; padding: 26px 30px;
+  background: var(--accent-soft); border: 1px solid rgba(255, 90, 40, 0.28);
+  border-radius: 16px; display: flex; gap: 28px; align-items: center;
+  justify-content: space-between; flex-wrap: wrap;
+  font-size: 0.95rem; color: var(--ink-soft);
+}
+.imm-note b { color: var(--ink); }
+.imm-note-cta { display: flex; gap: 12px; flex-wrap: wrap; flex: none; }
+.imm-honest {
+  margin-top: 20px; font-size: 0.92rem; color: var(--muted);
+  border-left: 2px solid var(--line-strong); padding-left: 18px;
+}
+.imm-honest b { color: var(--ink-soft); }
+
+@media (max-width: 720px) {
+  .imm-grid { grid-template-columns: 1fr; }
+  .imm-note { padding: 22px; }
+  .imm-note-cta .btn { width: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .imm-card:hover .imm-thumb span { animation: none !important; }
+}
+
+/* ---------- live preview frames inside the immersive cards ---------- */
+.imm-thumb[data-live] { cursor: pointer; }
+.imm-thumb iframe {
+  position: absolute; inset: 0; width: 1100px; height: 619px;
+  border: 0; transform-origin: 0 0; pointer-events: none;
+  opacity: 0; transition: opacity 0.6s ease;
+}
+.imm-thumb.is-live iframe { opacity: 1; }
+/* the CSS poster stays underneath and fades out once the frame is up */
+.imm-thumb.is-live > span { opacity: 0; transition: opacity 0.6s ease; }
+.imm-live-tag {
+  position: absolute; left: 12px; top: 12px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); background: rgba(11, 9, 8, 0.66);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px;
+  opacity: 0; transition: opacity 0.6s ease;
+}
+.imm-thumb.is-live .imm-live-tag { opacity: 1; }
+.imm-live-tag i {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  animation: immPulse 2s ease-in-out infinite;
+}
+@keyframes immPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .imm-live-tag i { animation: none; } }

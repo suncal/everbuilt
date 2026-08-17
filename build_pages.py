@@ -385,6 +385,7 @@ NAV = """<nav class="nav">
     </button>
     <ul class="nav-links">
       <li><a href="{root}work/us250.html">Work</a></li>
+      <li><a href="{root}index.html#immersive">Immersive</a></li>
       <li><a href="{root}index.html#audiences">Who we serve</a></li>
       <li><a href="{root}index.html#pricing">Pricing</a></li>
       <li><a href="{root}index.html#process">Process</a></li>
@@ -402,6 +403,7 @@ FOOTER = """<footer>
     </div>
     <ul class="footer-links">
       <li><a href="{root}work/us250.html">Work</a></li>
+      <li><a href="{root}work/immersive.html">Immersive builds</a></li>
       <li><a href="{root}for/small-business.html">For businesses</a></li>
       <li><a href="{root}for/nonprofits.html">For nonprofits</a></li>
       <li><a href="{root}for/founders.html">For founders</a></li>
@@ -606,7 +608,7 @@ def render_article(art):
 
 
 def write_sitemap():
-    urls = [f"{DOMAIN}/", f"{DOMAIN}/work/us250.html"]
+    urls = [f"{DOMAIN}/", f"{DOMAIN}/work/us250.html", f"{DOMAIN}/work/immersive.html"]
     urls += [f"{DOMAIN}/for/{p['slug']}.html" for p in PAGES]
     urls += [f"{DOMAIN}/guides/{a['slug']}.html" for a in ARTICLES]
     body = "\n".join(
