@@ -70,6 +70,24 @@
   <span class="styleswitch__label">Monolith</span>
   <button type="button" data-style="corridor" data-cursor="fly through">Corridor</button>
   <button type="button" data-style="orbit" data-cursor="orbit">Orbit</button>
+  <button type="button" data-style="daylight" data-cursor="your sky">Daylight</button>
+</div>
+
+<!-- ============ SOLAR READOUT (daylight style only) ============ -->
+<div class="sky" id="skyPanel" hidden>
+  <div class="sky__head">
+    <span class="sky__dot" id="skyDot"></span>
+    <b id="skyTime">--:--</b>
+    <span id="skyPhase">&mdash;</span>
+  </div>
+  <label class="sky__scrub">
+    <span class="sr-only">Preview another time of day</span>
+    <input type="range" id="skyScrub" min="0" max="1439" step="5" value="720">
+  </label>
+  <div class="sky__foot">
+    <span id="skyWhere">&mdash;</span>
+    <button type="button" id="skyLive" data-cursor="now">Back to now</button>
+  </div>
 </div>
 
 <main id="top" class="stage">

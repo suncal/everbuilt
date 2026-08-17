@@ -798,7 +798,7 @@ footer::after {
    IMMERSIVE BUILDS — the 3D option, offered alongside the
    standard build so visitors can pick for themselves.
    ============================================================ */
-.imm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.imm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 .imm-card {
   background: rgba(24, 20, 16, 0.72);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -910,3 +910,19 @@ footer::after {
 }
 @keyframes immPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 @media (prefers-reduced-motion: reduce) { .imm-live-tag i { animation: none; } }
+
+/* daylight poster: a sun low over a horizon line */
+.imm-thumb--daylight { background: linear-gradient(180deg, #10203a 0%, #35406b 46%, #b4703a 62%, #1a1410 100%); }
+.imm-thumb--daylight span:nth-child(1) {
+  width: 22%; height: 39%; border: 0; top: 58%;
+  background: radial-gradient(circle, #ffd9a3 0%, #ff9a4d 46%, rgba(255,154,77,0) 72%);
+}
+.imm-thumb--daylight span:nth-child(2) {
+  width: 130%; height: 0; top: 62%; border: 0;
+  border-top: 1px solid rgba(255, 200, 150, 0.45); border-radius: 0;
+}
+.imm-card:hover .imm-thumb--daylight span:nth-child(1) { animation: immRise 5s ease-in-out infinite alternate; }
+@keyframes immRise {
+  from { transform: translate(-50%, -50%) translateY(16px); opacity: 0.75; }
+  to   { transform: translate(-50%, -50%) translateY(-14px); opacity: 1; }
+}

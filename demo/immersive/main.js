@@ -41,7 +41,169 @@ const START_Z = 26;
 
    Both drive the DOM depth rig identically — the page always moves in 3D.
    ========================================================= */
-const STYLES = ['corridor', 'orbit'];
+const STYLES = ['corridor', 'orbit', 'daylight'];
+
+/* =========================================================
+   SOLAR CONTEXT — where the visitor's sun actually is.
+
+   Zero permissions: the browser hands us an IANA timezone
+   (Intl) with no prompt, no API key, and nothing leaving the
+   page. From that we get their exact local clock, and a
+   good-enough lat/lon to put the sun in the right place.
+   ========================================================= */
+
+/* Coordinates for the timezones real visitors actually use.
+   Anything unlisted falls back to longitude derived from the
+   UTC offset, which is accurate to about half an hour. */
+const TZ_COORDS = {
+  'America/New_York': [40.7, -74.0],   'America/Chicago': [41.9, -87.6],
+  'America/Denver': [39.7, -105.0],    'America/Los_Angeles': [34.1, -118.2],
+  'America/Phoenix': [33.4, -112.1],   'America/Anchorage': [61.2, -149.9],
+  'America/Toronto': [43.7, -79.4],    'America/Vancouver': [49.3, -123.1],
+  'America/Edmonton': [53.5, -113.5],  'America/Halifax': [44.6, -63.6],
+  'America/Mexico_City': [19.4, -99.1],'America/Bogota': [4.7, -74.1],
+  'America/Sao_Paulo': [-23.5, -46.6], 'America/Argentina/Buenos_Aires': [-34.6, -58.4],
+  'Pacific/Honolulu': [21.3, -157.9],
+  'Europe/London': [51.5, -0.1],       'Europe/Dublin': [53.3, -6.2],
+  'Europe/Paris': [48.9, 2.3],         'Europe/Berlin': [52.5, 13.4],
+  'Europe/Madrid': [40.4, -3.7],       'Europe/Lisbon': [38.7, -9.1],
+  'Europe/Rome': [41.9, 12.5],         'Europe/Amsterdam': [52.4, 4.9],
+  'Europe/Brussels': [50.8, 4.4],      'Europe/Zurich': [47.4, 8.5],
+  'Europe/Vienna': [48.2, 16.4],       'Europe/Prague': [50.1, 14.4],
+  'Europe/Warsaw': [52.2, 21.0],       'Europe/Stockholm': [59.3, 18.1],
+  'Europe/Oslo': [59.9, 10.7],         'Europe/Helsinki': [60.2, 24.9],
+  'Europe/Athens': [38.0, 23.7],       'Europe/Istanbul': [41.0, 29.0],
+  'Europe/Kyiv': [50.5, 30.5],         'Europe/Moscow': [55.8, 37.6],
+  'Asia/Dubai': [25.2, 55.3],          'Asia/Riyadh': [24.7, 46.7],
+  'Asia/Jerusalem': [31.8, 35.2],      'Asia/Karachi': [24.9, 67.0],
+  'Asia/Kolkata': [21.0, 78.0],        'Asia/Dhaka': [23.8, 90.4],
+  'Asia/Bangkok': [13.8, 100.5],       'Asia/Singapore': [1.35, 103.8],
+  'Asia/Jakarta': [-6.2, 106.8],       'Asia/Manila': [14.6, 121.0],
+  'Asia/Hong_Kong': [22.3, 114.2],     'Asia/Shanghai': [31.2, 121.5],
+  'Asia/Seoul': [37.6, 127.0],         'Asia/Tokyo': [35.7, 139.7],
+  'Australia/Perth': [-31.9, 115.9],   'Australia/Brisbane': [-27.5, 153.0],
+  'Australia/Sydney': [-33.9, 151.2],  'Australia/Melbourne': [-37.8, 145.0],
+  'Pacific/Auckland': [-36.8, 174.8],
+  'Africa/Cairo': [30.0, 31.2],        'Africa/Lagos': [6.5, 3.4],
+  'Africa/Nairobi': [-1.3, 36.8],      'Africa/Johannesburg': [-26.2, 28.0],
+};
+
+/* Plenty of systems still report the legacy zone names, and they miss the
+   table above entirely — this machine says "Asia/Calcutta", not
+   "Asia/Kolkata". Without this map India would be lit like Kansas. */
+const TZ_ALIASES = {
+  'Asia/Calcutta': 'Asia/Kolkata',      'Asia/Katmandu': 'Asia/Kathmandu',
+  'Asia/Rangoon': 'Asia/Yangon',        'Asia/Saigon': 'Asia/Ho_Chi_Minh',
+  'Asia/Istanbul': 'Europe/Istanbul',   'Europe/Kiev': 'Europe/Kyiv',
+  'America/Buenos_Aires': 'America/Argentina/Buenos_Aires',
+  'US/Eastern': 'America/New_York',     'US/Central': 'America/Chicago',
+  'US/Mountain': 'America/Denver',      'US/Pacific': 'America/Los_Angeles',
+  'US/Hawaii': 'Pacific/Honolulu',      'US/Alaska': 'America/Anchorage',
+  'Canada/Eastern': 'America/Toronto',  'Canada/Pacific': 'America/Vancouver',
+  'Australia/Canberra': 'Australia/Sydney', 'Australia/NSW': 'Australia/Sydney',
+  'Australia/Victoria': 'Australia/Melbourne', 'Australia/West': 'Australia/Perth',
+  'Europe/Belfast': 'Europe/London',    'GB': 'Europe/London',
+  'Egypt': 'Africa/Cairo',              'Japan': 'Asia/Tokyo',
+  'Singapore': 'Asia/Singapore',        'Hongkong': 'Asia/Hong_Kong',
+  'NZ': 'Pacific/Auckland',
+};
+
+function readTimezone() {
+  let tz;
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; }
+  catch { tz = 'UTC'; }
+  return TZ_ALIASES[tz] || tz;
+}
+const TZ = readTimezone();
+
+/* offset in hours, east-positive, for *now* in this zone */
+function tzOffsetHours(d = new Date()) {
+  return -d.getTimezoneOffset() / 60;
+}
+
+function siteCoords() {
+  const hit = TZ_COORDS[TZ];
+  if (hit) return { lat: hit[0], lon: hit[1], known: true };
+  return { lat: 40, lon: tzOffsetHours() * 15, known: false };   // longitude from offset
+}
+const COORDS = siteCoords();
+
+/* Sun elevation + azimuth for a given local decimal hour.
+   Standard low-precision solar position — good to well under a
+   degree, which is far finer than anything the eye reads here. */
+function sunAngles(hourLocal, date = new Date()) {
+  const rad = Math.PI / 180;
+  const start = Date.UTC(date.getUTCFullYear(), 0, 0);
+  const day = Math.floor((Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()) - start) / 864e5);
+
+  const decl = 23.44 * Math.sin(2 * Math.PI * (284 + day) / 365);           // declination °
+  const B = 2 * Math.PI * (day - 81) / 364;
+  const eqTime = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);  // minutes
+
+  // clock time → true solar time
+  const stdMeridian = tzOffsetHours(date) * 15;
+  const solarMin = hourLocal * 60 + 4 * (COORDS.lon - stdMeridian) + eqTime;
+  const hourAngle = (solarMin / 4) - 180;                                   // degrees
+
+  const la = COORDS.lat * rad, de = decl * rad, ha = hourAngle * rad;
+  const sinEl = Math.sin(la) * Math.sin(de) + Math.cos(la) * Math.cos(de) * Math.cos(ha);
+  const elev = Math.asin(clamp(sinEl, -1, 1));
+  const az = Math.atan2(-Math.sin(ha), Math.tan(de) * Math.cos(la) - Math.sin(la) * Math.cos(ha));
+
+  return { elevation: elev / rad, azimuth: az / rad, declination: decl };
+}
+
+function localHourNow() {
+  const d = new Date();
+  try {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: TZ, hour: '2-digit', minute: '2-digit', hour12: false,
+    }).formatToParts(d);
+    const get = t => +parts.find(p => p.type === t).value;
+    return (get('hour') % 24) + get('minute') / 60;
+  } catch {
+    return d.getHours() + d.getMinutes() / 60;
+  }
+}
+
+function phaseName(elev, rising) {
+  if (elev < -12) return 'Night';
+  if (elev < -3)  return 'Twilight';
+  if (elev < 1)   return rising ? 'Sunrise' : 'Sunset';
+  if (elev < 8)   return 'Golden hour';
+  if (elev < 30)  return rising ? 'Morning light' : 'Afternoon light';
+  return 'Midday sun';
+}
+
+/* Palette keyframes by sun elevation. Deliberately cinematic rather
+   than photographic — a literal white noon sky would bleach the type. */
+const SKY_KEYS = [
+  { el: -18, zen: 0x05070f, hor: 0x0a0f1e, sun: 0xbcc8ee, light: 0x44548a, int: 0.30, veil: 0.26 },
+  { el:  -6, zen: 0x0a1024, hor: 0x2a2450, sun: 0xd8c0e8, light: 0x6b6aa0, int: 0.55, veil: 0.30 },
+  { el:   0, zen: 0x1d2b48, hor: 0xff9a4d, sun: 0xff7a2f, light: 0xff9a5a, int: 1.70, veil: 0.38 },
+  { el:   6, zen: 0x2b4a74, hor: 0xffc27a, sun: 0xffb35c, light: 0xffc07a, int: 2.40, veil: 0.42 },
+  { el:  20, zen: 0x1f63b8, hor: 0x8fc0e8, sun: 0xfff4d6, light: 0xfff0d0, int: 2.90, veil: 0.50 },
+  { el:  60, zen: 0x0f57b4, hor: 0xa8cdf0, sun: 0xffffff, light: 0xffffff, int: 3.20, veil: 0.52 },
+];
+
+const _c1 = new THREE.Color(), _c2 = new THREE.Color();
+function skyPalette(elev) {
+  let a = SKY_KEYS[0], b = SKY_KEYS[SKY_KEYS.length - 1];
+  for (let i = 0; i < SKY_KEYS.length - 1; i++) {
+    if (elev >= SKY_KEYS[i].el && elev <= SKY_KEYS[i + 1].el) { a = SKY_KEYS[i]; b = SKY_KEYS[i + 1]; break; }
+  }
+  if (elev < SKY_KEYS[0].el) { a = b = SKY_KEYS[0]; }
+  if (elev > SKY_KEYS[SKY_KEYS.length - 1].el) { a = b = SKY_KEYS[SKY_KEYS.length - 1]; }
+  const t = a === b ? 0 : clamp((elev - a.el) / (b.el - a.el), 0, 1);
+  const mix = (x, y) => _c1.setHex(x).lerp(_c2.setHex(y), t).getHex();
+  return {
+    zen: mix(a.zen, b.zen), hor: mix(a.hor, b.hor), sun: mix(a.sun, b.sun),
+    light: mix(a.light, b.light),
+    int: lerp(a.int, b.int, t),
+    veil: lerp(a.veil, b.veil, t),
+    night: 1 - smoothstep(-10, 2, elev),
+  };
+}
 
 /* Nothing can scroll a preview frame, so it scrolls itself — a slow ping-pong
    down the page and back, showing the whole effect untouched. */
@@ -233,11 +395,15 @@ const monoliths = LOOKS.map(s => {
    punch-through always happens during a transition — never on top of
    something you were trying to read. */
 function placeStations() {
-  if (STYLE === 'orbit') {
+  const solo = STYLE === 'orbit' || STYLE === 'daylight';
+  sky.visible = ground.visible = STYLE === 'daylight';
+
+  if (solo) {
     /* one hero form at the origin; the rest sit out this style */
+    const s = STYLE === 'daylight' ? 0.42 : 0.34;
     monoliths.forEach((m, i) => {
       m.group.visible = i === 0;
-      if (i === 0) { m.z = 0; m.group.position.set(0, 0, 0); m.group.scale.setScalar(0.34); }
+      if (i === 0) { m.z = 0; m.group.position.set(0, 0, 0); m.group.scale.setScalar(s); }
     });
     rings.forEach(r => { r.visible = false; });
     return;
@@ -304,9 +470,9 @@ pGeo.setAttribute('aSeed', new THREE.BufferAttribute(pSeed, 1));
 
 const particles = new THREE.Points(pGeo, new THREE.ShaderMaterial({
   transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-  uniforms: { uTime: uniforms.uTime },
+  uniforms: { uTime: uniforms.uTime, uStar: { value: 1 } },
   vertexShader: /* glsl */`
-    uniform float uTime;
+    uniform float uTime; uniform float uStar;
     attribute float aSeed; varying float vA;
     void main(){
       vec3 p = position;
@@ -315,7 +481,7 @@ const particles = new THREE.Points(pGeo, new THREE.ShaderMaterial({
       vec4 mv = modelViewMatrix * vec4(p, 1.0);
       gl_PointSize = (aSeed * 2.4 + 0.7) * (30.0 / max(1.0, -mv.z));
       gl_Position = projectionMatrix * mv;
-      vA = smoothstep(90.0, 8.0, -mv.z) * (0.2 + aSeed * 0.8);
+      vA = smoothstep(90.0, 8.0, -mv.z) * (0.2 + aSeed * 0.8) * uStar;
     }`,
   fragmentShader: /* glsl */`
     varying float vA;
@@ -326,6 +492,51 @@ const particles = new THREE.Points(pGeo, new THREE.ShaderMaterial({
     }`,
 }));
 scene.add(particles);
+
+
+/* --- 3c². sky dome + ground, for the 'daylight' style ---------------
+   A gradient dome plus a sun/moon disc. Colours come from the CPU
+   (skyPalette) so they can be tuned by eye rather than by shader
+   algebra, and so the DOM veil can be driven from the same numbers. */
+const skyUniforms = {
+  uZenith:  { value: new THREE.Color(0x05070f) },
+  uHorizon: { value: new THREE.Color(0x0a0f1e) },
+  uSunCol:  { value: new THREE.Color(0xbcc8ee) },
+  uSunDir:  { value: new THREE.Vector3(0, 1, 0) },
+};
+const sky = new THREE.Mesh(
+  new THREE.SphereGeometry(190, 32, 24),
+  new THREE.ShaderMaterial({
+    side: THREE.BackSide, depthWrite: false, fog: false, uniforms: skyUniforms,
+    vertexShader: /* glsl */`
+      varying vec3 vDir;
+      void main(){ vDir = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: /* glsl */`
+      uniform vec3 uZenith, uHorizon, uSunCol, uSunDir;
+      varying vec3 vDir;
+      void main(){
+        vec3 d = normalize(vDir);
+        vec3 col = mix(uHorizon, uZenith, pow(clamp(d.y, 0.0, 1.0), 0.55));
+        float toSun = max(dot(d, normalize(uSunDir)), 0.0);
+        col += uSunCol * pow(toSun, 8.0) * 0.6;              // glow around the sun
+        col += uSunCol * pow(toSun, 220.0) * 1.4;            // the disc itself
+        col *= mix(0.42, 1.0, smoothstep(-0.28, 0.06, d.y)); // ground haze below the line
+        gl_FragColor = vec4(col, 1.0);
+      }`,
+  })
+);
+sky.visible = false;
+scene.add(sky);
+
+const groundGeo = new THREE.CircleGeometry(170, 64);
+groundGeo.rotateX(-Math.PI / 2);
+const ground = new THREE.Mesh(
+  groundGeo,
+  new THREE.MeshStandardMaterial({ color: 0x0c0e13, roughness: 0.92, metalness: 0.05 })
+);
+ground.position.y = -7;
+ground.visible = false;
+scene.add(ground);
 
 /* --- 3d. lights --- */
 scene.add(new THREE.AmbientLight(0xffffff, 0.4));
@@ -414,6 +625,127 @@ function driveDOM() {
 }
 
 /* =========================================================
+   6b. THE SUN
+   `scrubHour` is null when we're showing the visitor's real
+   local time, or a number when they've dragged the scrubber.
+   ========================================================= */
+let scrubHour = null;
+
+const switchEl = document.getElementById('styleSwitch');
+const skyPanel = document.getElementById('skyPanel');
+const skyTimeEl = document.getElementById('skyTime');
+const skyPhaseEl = document.getElementById('skyPhase');
+const skyWhereEl = document.getElementById('skyWhere');
+const skyScrub = document.getElementById('skyScrub');
+const skyLive = document.getElementById('skyLive');
+const skyDot = document.getElementById('skyDot');
+
+const fmtHour = h => {
+  const hh = Math.floor(h) % 24, mm = Math.floor((h % 1) * 60);
+  return String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0');
+};
+
+/* Called once per frame in the daylight style. Cheap string work, but
+   only touch the DOM when something actually changed. */
+let _lastRead = '';
+function reportSky({ pal, now, rising }) {
+  if (!skyPanel || EMBED) return;
+  const hour = scrubHour ?? localHourNow();
+  const label = fmtHour(hour) + '|' + phaseName(now.elevation, rising);
+  if (label === _lastRead) return;
+  _lastRead = label;
+
+  const [time, phase] = label.split('|');
+  skyTimeEl.textContent = time;
+  skyPhaseEl.textContent = phase;
+  skyDot.style.color = skyDot.style.background = '#' + pal.sun.toString(16).padStart(6, '0');
+  if (scrubHour === null) skyScrub.value = String(Math.round(hour * 60));
+}
+
+if (skyScrub) {
+  skyScrub.addEventListener('input', () => {
+    scrubHour = +skyScrub.value / 60;
+    skyLive.classList.add('is-on');
+    _lastRead = '';
+  });
+  skyLive.addEventListener('click', () => {
+    scrubHour = null;
+    skyLive.classList.remove('is-on');
+    _lastRead = '';
+  });
+}
+
+function applyStyle(name, persist = true) {
+  if (!STYLES.includes(name)) return;
+  STYLE = name;
+  placeStations();
+  switchEl?.querySelectorAll('button').forEach(b =>
+    b.classList.toggle('is-on', b.dataset.style === name));
+  document.documentElement.dataset.sceneStyle = name;
+
+  if (skyPanel) {
+    skyPanel.hidden = !(name === 'daylight' && !EMBED);
+    if (skyWhereEl) {
+      skyWhereEl.textContent = COORDS.known
+        ? TZ.split('/').pop().replace(/_/g, ' ')
+        : 'Your timezone';
+    }
+    _lastRead = '';
+  }
+  if (name !== 'daylight') document.documentElement.style.setProperty('--veil', '0');
+  if (persist) {
+    try { localStorage.setItem('volta:style', name); } catch { /* private mode */ }
+    const u = new URL(location.href);
+    u.searchParams.set('style', name);
+    history.replaceState(null, '', u);
+  }
+}
+
+switchEl?.addEventListener('click', e => {
+  const b = e.target.closest('button[data-style]');
+  if (b) applyStyle(b.dataset.style);
+});
+
+applyStyle(STYLE, false);        // reflect the resolved style in the UI at boot
+
+const _sunVec = new THREE.Vector3();
+
+function activeHour(t) {
+  if (EMBED) return (embedProgress(t) * 20 + 4) % 24;   // a whole day per loop
+  return scrubHour ?? localHourNow();
+}
+
+function driveSun(hour) {
+  const now = sunAngles(hour);
+  const prev = sunAngles(hour - 0.25);
+  const pal = skyPalette(now.elevation);
+
+  // place the light on the real bearing: azimuth 0 = north, +east
+  const el = now.elevation * Math.PI / 180;
+  const az = now.azimuth * Math.PI / 180;
+  _sunVec.set(Math.sin(az) * Math.cos(el), Math.sin(el), -Math.cos(az) * Math.cos(el)).normalize();
+
+  skyUniforms.uSunDir.value.copy(_sunVec);
+  skyUniforms.uZenith.value.setHex(pal.zen);
+  skyUniforms.uHorizon.value.setHex(pal.hor);
+  skyUniforms.uSunCol.value.setHex(pal.sun);
+
+  key.position.copy(_sunVec).multiplyScalar(60);
+  key.color.setHex(pal.light);
+  key.intensity = pal.int;
+  rim.intensity = 0.35 + pal.night * 0.9;
+  ground.material.color.setHex(pal.zen).multiplyScalar(0.5);
+  scene.fog.color.setHex(pal.hor);
+  particles.material.uniforms.uStar.value = pal.night;
+
+  /* The veil scales with sky brightness so the type keeps its contrast
+     at noon as well as at midnight — legibility can't depend on the hour. */
+  document.documentElement.style.setProperty('--veil', pal.veil.toFixed(3));
+
+  return { pal, now, rising: now.elevation > prev.elevation };
+}
+
+/* =========================================================
    7. LOOP
    ========================================================= */
 const clock = new THREE.Clock();
@@ -440,12 +772,31 @@ function step() {
   uniforms.uTime.value = t;
   uniforms.uProgress.value = S.smooth;
 
+  const daylight = STYLE === 'daylight';
   const orbit = STYLE === 'orbit';
+  const solo = orbit || daylight;
   const k = orbit ? sampleOrbit(S.smooth) : null;
 
-  /* --- camera: down the corridor, or around the hero form --- */
+  /* --- the visitor's actual sun, in the daylight style --- */
+  let sun = null;
+  if (daylight) {
+    sun = driveSun(activeHour(t));
+    reportSky(sun);
+  }
+
+  /* --- camera: down the corridor, around the form, or across the horizon --- */
   let camZ, lookZ;
-  if (orbit) {
+  if (daylight) {
+    /* stay low and swing around the form so the horizon line — the whole
+       point of this style — is always in shot. Start facing the sun, or the
+       visitor may never see the one thing that makes this style different. */
+    const a = -sun.now.azimuth * Math.PI / 180 + S.smooth * 2.3;
+    const r = 17 - S.smooth * 4;
+    camera.position.x = Math.sin(a) * r + M.sx * 1.6;
+    camera.position.y = 1.4 + S.smooth * 3.2 - M.sy * 1.2;
+    camZ = Math.cos(a) * r;
+    lookZ = 0;
+  } else if (orbit) {
     camZ = k.pos[2];
     lookZ = 0;
     camera.position.x = k.pos[0] + M.sx * 1.5;
@@ -458,41 +809,44 @@ function step() {
   }
   camera.position.z = camZ;
   camera.lookAt(
-    orbit ? M.sx * 0.5 : Math.sin(S.smooth * 5.2 + 0.6) * 1.2 + M.sx * 0.9,
-    orbit ? -M.sy * 0.4 : Math.cos(S.smooth * 4.1 + 0.6) * 0.9 - M.sy * 0.7,
+    daylight ? M.sx * 0.4 : orbit ? M.sx * 0.5 : Math.sin(S.smooth * 5.2 + 0.6) * 1.2 + M.sx * 0.9,
+    daylight ? 0.6 - M.sy * 0.3 : orbit ? -M.sy * 0.4 : Math.cos(S.smooth * 4.1 + 0.6) * 0.9 - M.sy * 0.7,
     lookZ
   );
-  camera.rotation.z += Math.sin(S.smooth * 3.4) * (orbit ? 0.05 : 0.09) + S.vel * 2.2;  // roll, after lookAt
-  travel.position.set(camera.position.x, camera.position.y, camZ - (orbit ? 2 : 4));
+  camera.rotation.z += Math.sin(S.smooth * 3.4) * (solo ? 0.05 : 0.09) + S.vel * 2.2;  // roll, after lookAt
+  travel.position.set(camera.position.x, camera.position.y, camZ - (solo ? 2 : 4));
+  if (daylight) sky.position.copy(camera.position);   // dome always centred on the eye
 
   /* --- how "inside" the form we are: proximity in corridor, keyframed in orbit --- */
   let insideAny = 0;
   for (const m of monoliths) {
     if (!m.group.visible) continue;
-    const near = orbit
-      ? k.morph * 0.55
-      : clamp(1 - Math.abs(camZ - m.z) / 46, 0, 1);
+    const near = daylight
+      ? 0.25 + Math.sin(t * 0.25) * 0.12
+      : orbit
+        ? k.morph * 0.55
+        : clamp(1 - Math.abs(camZ - m.z) / 46, 0, 1);
     insideAny = Math.max(insideAny, near);
 
-    m.group.rotation.y = t * 0.07 * m.data.spin + S.smooth * (orbit ? 3.1 : 2.2) * m.data.spin;
+    m.group.rotation.y = t * 0.07 * m.data.spin + S.smooth * (solo ? 3.1 : 2.2) * m.data.spin;
     m.group.rotation.x = Math.sin(t * 0.16 + m.z) * 0.22;
     m.wire.rotation.y = -t * 0.05 * m.data.spin;
     m.wire.scale.setScalar(m.data.r * (1.42 + near * 0.34));
 
     // dissolve the skin as we punch through it, so "inside" is a place
-    m.mat.opacity = 1 - near * (orbit ? 0.30 : 0.62);
+    m.mat.opacity = 1 - near * (solo ? 0.30 : 0.62);
     m.mat.envMapIntensity = 1.0 + near * 1.4;
     m.wireMat.opacity = 0.12 + near * 0.34;
     m.core.scale.setScalar(m.data.r * (1 + near * 0.1));
   }
   uniforms.uMorph.value = lerp(
     uniforms.uMorph.value,
-    orbit ? k.morph : 0.25 + insideAny * 0.9,
+    daylight ? 0.45 : orbit ? k.morph : 0.25 + insideAny * 0.9,
     0.09
   );
 
   /* --- rings recycle so the tunnel never ends (corridor only) --- */
-  if (!orbit) {
+  if (!solo) {
     const span = rings.length * RING_GAP;
     for (const r of rings) {
       let rel = r.position.z - camZ;
@@ -506,10 +860,18 @@ function step() {
     }
   }
 
-  /* --- atmosphere responds to depth --- */
-  scene.fog.density = orbit ? 0.030 + insideAny * 0.020 : 0.019 + insideAny * 0.030;
-  bloom.strength = (orbit ? k.bloom : 0.34 + insideAny * 0.75) + Math.abs(S.vel) * 6;
-  renderer.toneMappingExposure = 0.9 - insideAny * 0.18;
+  /* --- atmosphere responds to depth (or to the sky) --- */
+  if (daylight) {
+    scene.fog.density = 0.012;
+    bloom.strength = 0.22 + sun.pal.night * 0.30 + Math.abs(S.vel) * 4;
+    renderer.toneMappingExposure = 1.05 - (1 - sun.pal.night) * 0.10;
+  } else {
+    scene.fog.color.setHex(0x08080a);
+    scene.fog.density = orbit ? 0.030 + insideAny * 0.020 : 0.019 + insideAny * 0.030;
+    bloom.strength = (orbit ? k.bloom : 0.34 + insideAny * 0.75) + Math.abs(S.vel) * 6;
+    renderer.toneMappingExposure = 0.9 - insideAny * 0.18;
+    particles.material.uniforms.uStar.value = 1;
+  }
 
   driveDOM();
   composer.render();
@@ -614,30 +976,6 @@ litManifesto();
    Swaps the treatment live — no reload, no scroll jump — and
    remembers the choice so a shared ?style= link lands right.
    ========================================================= */
-const switchEl = document.getElementById('styleSwitch');
-
-function applyStyle(name, persist = true) {
-  if (!STYLES.includes(name)) return;
-  STYLE = name;
-  placeStations();
-  switchEl?.querySelectorAll('button').forEach(b =>
-    b.classList.toggle('is-on', b.dataset.style === name));
-  document.documentElement.dataset.sceneStyle = name;
-  if (persist) {
-    try { localStorage.setItem('volta:style', name); } catch { /* private mode */ }
-    const u = new URL(location.href);
-    u.searchParams.set('style', name);
-    history.replaceState(null, '', u);
-  }
-}
-
-switchEl?.addEventListener('click', e => {
-  const b = e.target.closest('button[data-style]');
-  if (b) applyStyle(b.dataset.style);
-});
-
-applyStyle(STYLE, false);        // reflect the resolved style in the UI at boot
-
 /* depth indicator in the footer/nav rail */
 const railEl = document.getElementById('railFill');
 addEventListener('scroll', () => {
