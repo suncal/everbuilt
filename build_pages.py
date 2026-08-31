@@ -290,6 +290,33 @@ PAGES = [
         "cta_head": "Send us your current site — or just your photos",
         "cta_sub": "We'll return a portfolio-grade remake that matches the work you actually do. Free.",
     },
+    {
+        "slug": "photographers",
+        "title": "Photographer Website Design",
+        "meta_title": "Photographer Website Design — Own Your Portfolio | Everbuilt Studio",
+        "meta_desc": "Photography websites built for full-resolution work: fast galleries, blur-up loading, client proofing links, and $0/month hosting. From $2,950, live in about a week.",
+        "kicker": "For photographers & studios",
+        "h1": "Your portfolio deserves better than a platform's compression",
+        "lede": "You spend hours on a single edit, then hand it to a template that crushes it to 1200px, watermarks the loading state, and charges you monthly to keep it online. Photographers have the most to lose from renting their own website.",
+        "pains_head": "The photographer website trap",
+        "pains": [
+            "Portfolio platforms re-compressing your work until the grade is gone",
+            "$20–50/month forever — and your galleries vanish the month you stop",
+            "Galleries that stall on mobile, so clients never reach image 40",
+            "Every other shooter in your city on the exact same three templates",
+        ],
+        "get_head": "What your studio gets",
+        "gets": [
+            ("Galleries built for real volume", "We processed 78GB of media and optimized 2,100+ photos for a national client launch. A wedding gallery or a 300-frame portfolio is well inside what this pipeline was engineered for."),
+            ("Your grade, preserved", "Modern responsive image sets — the browser gets the right resolution for the screen instead of one over-compressed file for everyone. Blur-up loading so nothing ever appears broken mid-scroll."),
+            ("Proofing and booking wired in", "Pixieset, ShootProof, Pic-Time, Honeybook, Calendly — your existing client-delivery and inquiry tools linked cleanly, not replaced."),
+            ("Own the whole portfolio", "Code, images, domain, admin keys. No platform can sunset a feature, raise your rate, or hold a decade of work hostage."),
+        ],
+        "proof": "Our media pipeline was built for a national nonprofit tour: 78GB processed, 2,100+ photos optimized, zero downtime at launch, and $0/month hosting since. That's the same pipeline your portfolio runs on.",
+        "price_line": "Most photographers fit <strong>Launch at $2,950</strong>; studios with large multi-gallery archives fit <strong>Signature from $7,500</strong>.",
+        "cta_head": "Send us your portfolio as it stands today",
+        "cta_sub": "A platform page, an Instagram grid, a folder of finals — we'll return a finished remake with your work at full quality. Free.",
+    },
 ]
 
 # ============================================================
@@ -419,6 +446,7 @@ FOOTER = """<footer>
     <a href="{root}for/clinics.html">Clinics</a>
     <a href="{root}for/churches.html">Churches</a>
     <a href="{root}for/contractors.html">Contractors</a>
+    <a href="{root}for/photographers.html">Photographers</a>
     <span style="margin-left:14px;">Guides:</span>
     <a href="{root}guides/how-much-does-a-website-cost.html">Website costs 2026</a>
     <a href="{root}guides/squarespace-alternative.html">Squarespace alternative</a>
