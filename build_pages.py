@@ -942,6 +942,7 @@ LOCAL_TEMPLATE = """<!DOCTYPE html>
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Service","name":{title_json},"provider":{{"@type":"ProfessionalService","name":"Everbuilt Studio","url":"{domain}/"}},"areaServed":{{"@type":"City","name":"{city_name}"}},"description":{desc_json}}}
 </script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "8379ea41f66c4c03b70f0b6c1244be6e"}}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 
@@ -1135,6 +1136,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Service","name":{title_json},"provider":{{"@type":"ProfessionalService","name":"Everbuilt Studio","url":"{domain}/"}},"areaServed":"United States","description":{desc_json}}}
 </script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "8379ea41f66c4c03b70f0b6c1244be6e"}}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 
@@ -1198,6 +1200,7 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Article","headline":{title_json},"description":{desc_json},"author":{{"@type":"Organization","name":"Everbuilt Studio"}},"publisher":{{"@type":"Organization","name":"Everbuilt Studio","url":"{domain}/"}},"mainEntityOfPage":"{canonical}"}}
 </script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "8379ea41f66c4c03b70f0b6c1244be6e"}}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 
