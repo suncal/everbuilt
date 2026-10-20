@@ -1,0 +1,23 @@
+# Everbuilt Studio
+
+> Everbuilt Studio builds premium websites, web apps and mobile apps that the client owns outright, hosted for $0/month. Fixed prices, delivered in days, serving businesses, nonprofits, founders and individuals across the United States. "Built once. Yours forever."
+
+## Packages (one-time price, you own the code, content and domain)
+- Launch — $2,950: up to 5 pages, custom design, delivered in about a week, contact forms wired and tested, SEO fundamentals, $0/month hosting, 90 days of free care.
+- Signature — from $7,500: the flagship build (as delivered for the national nonprofit at us250tour.com). Unlimited sections, photo and video galleries, admin panel to edit without code, spreadsheet-powered events, email marketing and form integrations, zero-downtime domain cutover.
+- Platform — from $15,000: web apps, SaaS MVPs and iOS/Android apps with user accounts, payments and dashboards, on a fixed-scope quote.
+- Optional care plans after 90 days: $295/month (updates and monitoring) or $595/month (same-day priority). The site keeps running at $0/month without one.
+
+## How it works
+1. Free remake: request one and get a finished, live preview of your new homepage before paying anything.
+2. Pick a package and pay a 50% deposit; send content.
+3. Days 2–5: built and staged on a private preview link, revised same day.
+4. Days 6–7: zero-downtime launch on your domain; you get the code and admin access. Balance is due only on approval.
+
+## Why $0/month hosting
+Sites are static and served from free global hosting, so there is no monthly platform fee — versus agency subscriptions of $2,500–$4,995 per month.
+
+## Links
+- Home: https://everbuiltstudio.com/
+- Free remake request: https://everbuiltstudio.com/#contact
+- Local pages: https://everbuiltstudio.com/local/

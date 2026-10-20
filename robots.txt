@@ -1,3 +1,61 @@
+# AI answer engines and search crawlers are welcome.
+
+User-agent: GPTBot
+Allow: /
+Disallow: /thanks.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /thanks.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /thanks.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /thanks.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /thanks.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /thanks.html
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /thanks.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /thanks.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /thanks.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /thanks.html
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /thanks.html
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /thanks.html
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /thanks.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /thanks.html
+
 User-agent: *
 Allow: /
 Disallow: /thanks.html
