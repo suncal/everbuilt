@@ -1332,6 +1332,10 @@ def main():
     print(f"wrote {len(hub_entries)} local pages")
     write_local_hub(hub_entries)
     write_sitemap()
+    # JARVIS pages: re-add their sitemap entries and home links, which write_sitemap() just dropped
+    jarvis = pathlib.Path(__file__).resolve().parent / "jarvis_pages.py"
+    if jarvis.exists():
+        import runpy; runpy.run_path(str(jarvis), run_name="__main__")
 
 
 if __name__ == "__main__":
