@@ -1,0 +1,37 @@
+{
+ "path": "/own-your-website-atlanta-ga/",
+ "title": "Own Your Site",
+ "h1": "Own Your Website Atlanta GA",
+ "description": "EverBuilt Studio builds websites that small businesses own outright with no monthly hosting fees. Our services include a free homepage remake and launch",
+ "html": "<h1>Own Your Website Atlanta GA</h1>\n<p>EverBuilt Studio builds websites that small businesses own outright with no monthly hosting fees. Our services include a free homepage remake and launch packages starting at $2,950.</p>\n<h2>What you get</h2>\n<p>Free homepage remake, Launch package $2,950, Signature package from $7,500</p>\n<h2>Why Everbuilt Studio</h2>\n<p>We specialize in creating websites for owner-run local service businesses in metro Atlanta, such as landscaping, roofing, and salons. Our goal is to provide a hassle-free website ownership experience with no subscription or lock-in.</p>\n<h2>FAQ</h2>\n<p><b>What type of businesses do you serve?</b> Owner-run local service businesses in metro Atlanta</p>\n<p><b>Do I own my website?</b> Yes, you own your website outright with no monthly hosting fees</p>\n<p><b>Next step:</b> Get a free homepage remake by contacting EverBuilt Studio today</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What type of businesses do you serve?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Owner-run local service businesses in metro Atlanta"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I own my website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you own your website outright with no monthly hosting fees"
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "own your website atlanta ga"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "d24645f3ed",
+ "source": "seo"
+}
