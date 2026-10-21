@@ -1,0 +1,38 @@
+{
+ "path": "/roofing-company-website-design-atlanta/",
+ "title": "Roofing Website Design",
+ "h1": "Roofing Company Website Design Atlanta",
+ "description": "EverBuilt Studio creates custom websites for roofing companies in metro Atlanta with no monthly hosting fees. You own your website outright, with files",
+ "html": "<h1>Roofing Company Website Design Atlanta</h1>\n<p>EverBuilt Studio creates custom websites for roofing companies in metro Atlanta with no monthly hosting fees. You own your website outright, with files handed over to you, starting with a free homepage remake.</p>\n<h2>What you get</h2>\n<p>Free homepage remake, Launch package $2,950, Signature package from $7,500</p>\n<h2>Why Everbuilt Studio</h2>\n<p>As an owner-run local service business, you need a website that showcases your expertise and attracts customers. EverBuilt Studio's custom website design helps you establish a strong online presence in the Atlanta area.</p>\n<h2>FAQ</h2>\n<p><b>Do I own my website?</b> Yes, you own your website outright with no subscription or lock-in.</p>\n<p><b>What areas do you serve?</b> We serve metro Atlanta.</p>\n<p><b>Next step:</b> Get your free homepage remake started today by visiting https://everbuiltstudio.com</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I own my website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you own your website outright with no subscription or lock-in."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What areas do you serve?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We serve metro Atlanta."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "roofing company website design atlanta",
+  "roofing company web design atlanta"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "dd79ddab00",
+ "source": "seo"
+}
