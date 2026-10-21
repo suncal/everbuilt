@@ -1,0 +1,37 @@
+{
+ "path": "/website-redesign-for-contractors-atlanta/",
+ "title": "Contractor Websites",
+ "h1": "Website Redesign for Contractors Atlanta",
+ "description": "EverBuilt Studio builds custom websites for contractors in Atlanta with no monthly hosting fees. You'll own your website outright, with all files handed",
+ "html": "<h1>Website Redesign for Contractors Atlanta</h1>\n<p>EverBuilt Studio builds custom websites for contractors in Atlanta with no monthly hosting fees. You'll own your website outright, with all files handed over to you.</p>\n<h2>What you get</h2>\n<p>Free homepage remake, Launch package $2,950, Signature package from $7,500</p>\n<h2>Why Everbuilt Studio</h2>\n<p>Our websites are designed for owner-run local service businesses, helping you establish a strong online presence. With no subscription or lock-in, you have full control over your website.</p>\n<h2>FAQ</h2>\n<p><b>Do I own my website?</b> Yes, you own your website outright with all files handed over to you.</p>\n<p><b>What areas do you serve?</b> We serve metro Atlanta.</p>\n<p><b>Next step:</b> Get a free homepage remake by contacting EverBuilt Studio today</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I own my website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you own your website outright with all files handed over to you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What areas do you serve?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We serve metro Atlanta."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "website redesign for contractors atlanta"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "de847e6c68",
+ "source": "seo"
+}
