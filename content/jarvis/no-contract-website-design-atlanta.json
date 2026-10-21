@@ -1,0 +1,37 @@
+{
+ "path": "/no-contract-website-design-atlanta/",
+ "title": "No Contract Websites",
+ "h1": "No Contract Website Design Atlanta",
+ "description": "EverBuilt Studio creates websites for small businesses in metro Atlanta with no monthly hosting fees or contracts. You own your website outright, with all",
+ "html": "<h1>No Contract Website Design Atlanta</h1>\n<p>EverBuilt Studio creates websites for small businesses in metro Atlanta with no monthly hosting fees or contracts. You own your website outright, with all files handed over to you, starting with a free homepage remake.</p>\n<h2>What you get</h2>\n<p>Free homepage remake, Launch package $2,950, Signature package from $7,500</p>\n<h2>Why Everbuilt Studio</h2>\n<p>Our approach eliminates the risk of being locked into a subscription or contract, giving you full control over your website. This is particularly beneficial for owner-run local service businesses, such as landscaping, roofing, contractors, and salons.</p>\n<h2>FAQ</h2>\n<p><b>What happens to my website after it's launched?</b> You own it outright, with all files handed over to you.</p>\n<p><b>Do I have to pay monthly hosting fees?</b> No, our websites come with $0/month hosting.</p>\n<p><b>Next step:</b> Get started with your free homepage remake today at everbuiltstudio.com</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What happens to my website after it's launched?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You own it outright, with all files handed over to you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I have to pay monthly hosting fees?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, our websites come with $0/month hosting."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "no contract website design atlanta"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "d1edd5a967",
+ "source": "seo"
+}
