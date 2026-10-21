@@ -1,0 +1,39 @@
+{
+ "path": "/small-business-website-0-hosting/",
+ "title": "Small Business Websites",
+ "h1": "Small Business Website $0 Hosting",
+ "description": "EverBuilt Studio builds websites for small businesses with $0/month hosting, giving owners full control and ownership. Our websites are designed for",
+ "html": "<h1>Small Business Website $0 Hosting</h1>\n<p>EverBuilt Studio builds websites for small businesses with $0/month hosting, giving owners full control and ownership. Our websites are designed for owner-run local service businesses in metro Atlanta, including landscaping, roofing, contractors, and salons.</p>\n<h2>What you get</h2>\n<p>Free homepage remake, Launch package $2,950, Signature package from $7,500</p>\n<h2>Why Everbuilt Studio</h2>\n<p>We believe small businesses should have control over their online presence without being locked into expensive subscriptions. Our approach ensures that you own your website outright, with no monthly hosting fees.</p>\n<h2>FAQ</h2>\n<p><b>Do I own my website?</b> Yes, you own your website outright, with all files handed over to you.</p>\n<p><b>What areas do you serve?</b> We serve owner-run local service businesses in metro Atlanta, Georgia.</p>\n<p><b>Next step:</b> Get a free homepage remake by contacting EverBuilt Studio today</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I own my website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you own your website outright, with all files handed over to you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What areas do you serve?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We serve owner-run local service businesses in metro Atlanta, Georgia."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "small business website $0 hosting",
+  "small business web design atlanta",
+  "small business website design georgia"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "d499d7b82d",
+ "source": "seo"
+}
