@@ -1,0 +1,37 @@
+{
+ "path": "/landscaping-business-website-atlanta/",
+ "title": "Landscaping Website",
+ "h1": "Landscaping Business Website Atlanta",
+ "description": "Everbuilt Studio builds websites for landscaping businesses in Atlanta with no monthly hosting fees. You own your website outright, with no subscription",
+ "html": "<h1>Landscaping Business Website Atlanta</h1>\n<p>Everbuilt Studio builds websites for landscaping businesses in Atlanta with no monthly hosting fees. You own your website outright, with no subscription or lock-in, and receive all files.</p>\n<h2>What you get</h2>\n<p>Free homepage remake, Launch package $2,950, Signature package from $7,500</p>\n<h2>Why Everbuilt Studio</h2>\n<p>As an owner-run local service business, you need a website that showcases your services and attracts customers. Everbuilt Studio's custom websites help you establish a strong online presence in metro Atlanta.</p>\n<h2>FAQ</h2>\n<p><b>Do I own my website?</b> Yes, you own your website outright with no subscription or lock-in.</p>\n<p><b>What areas do you serve?</b> We serve owner-run local service businesses in metro Atlanta.</p>\n<p><b>Next step:</b> Get a free homepage remake for your landscaping business by visiting everbuiltstudio.com</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I own my website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you own your website outright with no subscription or lock-in."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What areas do you serve?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We serve owner-run local service businesses in metro Atlanta."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "landscaping business website atlanta"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "db86d4ec22",
+ "source": "seo"
+}
