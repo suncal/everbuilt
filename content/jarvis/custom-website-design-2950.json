@@ -1,0 +1,46 @@
+{
+ "path": "/custom-website-design-2950/",
+ "title": "Custom website design $2950",
+ "h1": "Custom website design $2950",
+ "description": "Yes, you can get a fully owned custom website for $2,950. Choose the Launch package, pay a 50 % deposit, and receive a live site in about a week.",
+ "html": "<h1>Custom website design $2950</h1>\n<p>Yes, you can get a fully owned custom website for $2,950. Choose the Launch package, pay a 50 % deposit, and receive a live site in about a week.</p>\n<h2>How it works for a new business website</h2>\n<ol><li>Request the <b>Free homepage remake</b> – no call, no payment details.</li><li>Approve the design or keep it and move to the Launch package.</li><li>Pay 50 % deposit, provide your content, and let us build up to 5 pages with custom design, contact forms, and basic SEO.</li><li>Review the draft, give final approval, and pay the remaining balance.</li><li>Your site goes live on Cloudflare Pages (hosting $0/month) and you own the code, content, and domain.</li></ol>\n<h2>What you get and the costs</h2>\n<ul><li><b>Launch package</b>: $2,950 total, includes up to 5 pages, custom design, about a week of work, contact forms, and SEO basics.</li><li><b>Deposit</b>: 50 % up front, balance due at launch.</li><li><b>Hosting</b>: $0/month on Cloudflare Pages and GitHub.</li><li><b>Post‑launch care</b>: 90 days free, then optional care plans at $295/month or $595/month, cancel anytime.</li></ul>\n<h2>FAQ</h2>\n<p><b>Do I own the website after launch?</b> Yes. You receive full ownership of the code, content, and domain.</p>\n<p><b>What if I need more than 5 pages?</b> For unlimited sections, galleries, admin panels, and integrations, see the <b>Signature</b> service starting at $7,500.</p>\n<p><b>How quickly will my site be ready?</b> The Launch package is typically completed in about a week, as outlined in our guide: <a href=\"/guides/website-in-a-week.html\">/guides/website-in-a-week.html</a>.</p>\n<p><a href=\"/custom-website-launch-package/\">Start your custom website design for $2,950</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I own the website after launch?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. You receive full ownership of the code, content, and domain."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if I need more than 5 pages?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For unlimited sections, galleries, admin panels, and integrations, see the **Signature** service starting at $7,500."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How quickly will my site be ready?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Launch package is typically completed in about a week, as outlined in our guide: [/guides/website-in-a-week.html](/guides/website-in-a-week.html)."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "custom website design $2950",
+  "custom website design 50% deposit"
+ ],
+ "updated": "2026-10-25",
+ "draft_id": "dfac2c1c47",
+ "source": "seo"
+}
