@@ -1,0 +1,29 @@
+{
+ "path": "/remote-website-design-services/",
+ "title": "Remote Website Design Services",
+ "h1": "Remote Website Design Services",
+ "description": "You can get a custom website designed remotely with Everbuilt Studio, and you will own the site outright, including the code, content, and domain.",
+ "html": "<h1>Remote Website Design Services</h1>\n<p>You can get a custom website designed remotely with Everbuilt Studio, and you will own the site outright, including the code, content, and domain. Everbuilt Studio offers different design packages to help you achieve your website goals.</p>\n<h2>How it Works</h2>\n<p>Everbuilt Studio offers a Launch package for $2,950, which includes up to 5 pages, custom design, and SEO basics, and can be completed in about a week. The Signature package is available for $7,500 and includes unlimited sections, galleries, and admin panel. The Platform package is available for $15K and includes web apps, SaaS MVPs, and mobile apps. You can pay 50% deposit upfront and the balance at launch.</p>\n<h2>What You Get</h2>\n<p>With Everbuilt Studio, you get a custom-designed website with $0/month hosting fees, thanks to Cloudflare Pages and GitHub. You also get 90 days of free care after launch, and then you can opt for care plans at $295/month or $595/month. You can check out the flagship case study, us250tour.com, which was designed for $7,500 and features 2,100+ photos, 78 GB, and 0 minutes downtime.</p>\n<h2>FAQ</h2>\n<p><b>What is the process for getting a remote website design?</b> You can start by getting a free homepage remake, and then discuss your project with Everbuilt Studio to determine the best package for your needs. <b>How long does it take to get a Launch package website designed?</b> The Launch package can be completed in about a week. <b>Do I own the website outright?</b> Yes, with Everbuilt Studio, you own the website outright, including the code, content, and domain.</p>\n<p>Next, you can learn more about the custom website launch package and get started with your remote website design project. <a href=\"/custom-website-launch-package/\">Learn more about the custom website launch package</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the process for getting a remote website design?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can start by getting a free homepage remake, and then discuss your project with Everbuilt Studio to determine the best package for your needs. **How long does it take to get a Launch package website designed?** The Launch package can be completed in about a week. **Do I own the website outright?** Yes, with Everbuilt Studio, you own the website outright, including the code, content, and domain."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "remote website design services"
+ ],
+ "updated": "2026-10-25",
+ "draft_id": "d118fdc859",
+ "source": "seo"
+}
