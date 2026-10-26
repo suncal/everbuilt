@@ -1,0 +1,45 @@
+{
+ "path": "/nonprofit-website-design-package/",
+ "title": "Nonprofit Website Design Package",
+ "h1": "Nonprofit Website Design Package",
+ "description": "Yes, this is a full‑service nonprofit website design package from Everbuilt Studio. You get a custom site you own outright, hosted for $0/month, and 90",
+ "html": "<h1>Nonprofit Website Design Package</h1>\n<p>Yes, this is a full‑service nonprofit website design package from Everbuilt Studio. You get a custom site you own outright, hosted for $0/month, and 90 days of free care after launch.</p>\n<h2>How it works for a nonprofit looking for a quick, professional site</h2>\n<ol><li>Request the free homepage remake to see the design style – no call, no payment details.</li><li>Choose the <b>Launch</b> package ($2,950) for up to 5 pages, custom design, contact forms and basic SEO.</li><li>Pay a 50 % deposit; we build the site in about a week.</li><li>Review the live site, approve the final version, and the balance is due at launch.</li><li>Enjoy 90 days of free care; after that you can add a monthly care plan if you wish.</li></ol>\n<h2>What you get and the costs</h2>\n<ul><li><b>Launch package</b> – $2,950 total, includes up to 5 pages, custom design, contact forms, SEO basics, and a week‑long turnaround.</li><li><b>Ownership</b> – you receive all code, content, and the domain; the site is yours to keep or modify.</li><li><b>Hosting</b> – $0/month on Cloudflare Pages and GitHub, no hidden fees.</li><li><b>Post‑launch support</b> – 90 days free care, then optional plans at $295/month or $595/month, cancel anytime.</li></ul>\n<h2>FAQ</h2>\n<p><b>Do I have to sign a long‑term contract?</b> No. You pay the one‑time launch fee and can cancel the optional care plan at any time.</p>\n<p><b>Can I keep the free homepage remake if I don’t like the full design?</b> Yes. The free remake is yours to keep even if you decide not to proceed with the full package.</p>\n<p><b>How long will my site be live?</b> The launch package is delivered in about a week, and hosting costs nothing each month.</p>\n<p>Ready to start? <a href=\"/nonprofit-website-design-package/\">Get your nonprofit website design package</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I have to sign a long‑term contract?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. You pay the one‑time launch fee and can cancel the optional care plan at any time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I keep the free homepage remake if I don’t like the full design?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The free remake is yours to keep even if you decide not to proceed with the full package."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long will my site be live?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The launch package is delivered in about a week, and hosting costs nothing each month."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "nonprofit website design package"
+ ],
+ "updated": "2026-10-26",
+ "draft_id": "dbced37da8",
+ "source": "seo"
+}
