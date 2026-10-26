@@ -1,0 +1,45 @@
+{
+ "path": "/website-care-plans-295-month/",
+ "title": "Website Care Plans $295/Month",
+ "h1": "Website Care Plans $295/Month",
+ "description": "Yes, you can add ongoing support to your Everbuilt Studio site for $295 a month. After the free 90‑day care period you choose a plan and we keep your site",
+ "html": "<h1>Website Care Plans $295/Month</h1>\n<p>Yes, you can add ongoing support to your Everbuilt Studio site for $295 a month. After the free 90‑day care period you choose a plan and we keep your site updated, backed up, and running smoothly.</p>\n<h2>How it works for a newly launched site</h2>\n<ol><li>Your site launches with a Launch package ($2,950) or higher.</li><li>We give you 90 days of free care—updates, minor tweaks, and monitoring.</li><li>When the free period ends, you select the $295/month care plan.</li><li>Each month we handle CMS updates, security patches, and any small changes you request.</li><li>You can cancel anytime; there’s no contract lock‑in.</li></ol>\n<h2>What you get for $295/month</h2>\n<ul><li>Ongoing site maintenance and updates</li><li>Security monitoring and backups</li><li>Minor content edits (text, images, links)</li><li>Email and form integration checks</li><li>Priority response within one business day</li></ul>\n<p>The plan is a one‑time monthly fee. No hidden charges, no hosting fees beyond the $0/month Cloudflare Pages hosting that’s already included with every site.</p>\n<h2>FAQ</h2>\n<p><b>What if I need a larger change after the first month?</b> Minor edits are covered. For major redesigns you would purchase a new project or upgrade to the $595/month plan.</p>\n<p><b>Do I still own the site outright?</b> Yes. All code, content, and the domain remain yours. The care plan only adds service, not ownership changes.</p>\n<p><b>Can I stop the care plan at any time?</b> Yes. Cancel any month; you keep full control of the site and its files.</p>\n<p><b>Is the $295 price the same for all site types?</b> The $295/month plan applies to any site built with Everbuilt Studio, whether it’s a simple 5‑page launch or a larger Signature project.</p>\n<p>Ready to keep your site healthy? <a href=\"/website-care-plans-295-month/\">Choose the $295/month care plan</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What if I need a larger change after the first month?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Minor edits are covered. For major redesigns you would purchase a new project or upgrade to the $595/month plan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I still own the site outright?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. All code, content, and the domain remain yours. The care plan only adds service, not ownership changes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I stop the care plan at any time?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Cancel any month; you keep full control of the site and its files."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "website care plans $295/month"
+ ],
+ "updated": "2026-10-26",
+ "draft_id": "df0afb6b59",
+ "source": "seo"
+}
