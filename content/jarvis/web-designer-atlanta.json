@@ -1,0 +1,45 @@
+{
+ "path": "/web-designer-atlanta/",
+ "title": "Web Designer Atlanta",
+ "h1": "Web Designer Atlanta",
+ "description": "You can get a custom website with Everbuilt Studio, where you own the site outright, including the code, content, and domain. You can purchase a custom",
+ "html": "<h1>Web Designer Atlanta</h1>\n<p>You can get a custom website with Everbuilt Studio, where you own the site outright, including the code, content, and domain. You can purchase a custom website launch package for $2,950, which includes up to 5 pages, custom design, and SEO basics.</p>\n<h2>How it Works for a Custom Website Launch</h2>\n<p>To get started, you pay a 50% deposit, and the balance is due at launch. The launch process takes about a week, and you'll get a custom-designed website with contact forms and SEO basics. You'll also get 90 days of free care after launch, and then you can opt for a care plan at $295/month or $595/month.</p>\n<h2>What You Get and What it Costs</h2>\n<p>The custom website launch package costs $2,950. Hosting is $0/month on Cloudflare Pages and GitHub. Everbuilt Studio also offers the Signature website design service for $7,500, and the Platform service for $15K.</p>\n<h2>FAQ</h2>\n<p><b>What if I don't like the free homepage remake?</b> You can keep the design, and there's no obligation to pay or call us. <b>How long does it take to launch a website?</b> It takes about a week to launch a custom website. <b>Do I have to pay for hosting?</b> No, hosting is $0/month on Cloudflare Pages and GitHub.</p>\n<p>To get started with your custom website, <a href=\"/free-homepage-remake/\">get a free homepage remake</a> on this site.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What if I don't like the free homepage remake?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can keep the design, and there's no obligation to pay or call us."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does it take to launch a website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It takes about a week to launch a custom website."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I have to pay for hosting?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, hosting is $0/month on Cloudflare Pages and GitHub."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "web designer atlanta"
+ ],
+ "updated": "2026-10-27",
+ "draft_id": "d86bcb831e",
+ "source": "seo"
+}
