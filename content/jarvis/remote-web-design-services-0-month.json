@@ -1,0 +1,45 @@
+{
+ "path": "/remote-web-design-services-0-month/",
+ "title": "Remote Web Design Services $0 / Month",
+ "h1": "Remote Web Design Services $0 / Month",
+ "description": "You can build a new website with Everbuilt Studio and own all code, content, and domain. Hosting costs $0 / month on Cloudflare Pages and GitHub.",
+ "html": "<h1>Remote Web Design Services $0 / Month</h1>\n<p>You can build a new website with Everbuilt Studio and own all code, content, and domain. Hosting costs $0 / month on Cloudflare Pages and GitHub.</p>\n<h2>How It Works</h2>\n<ol><li><b>Free homepage remake</b> – no call, no payment details. If you don’t like it, keep your current design.</li><li><b>Choose a launch package</b> – $2,950 gives you a custom design, up to 5 pages, contact forms, and basic SEO.</li><li><b>Pay 50 % upfront</b> – the rest is due at launch.</li><li><b>Enjoy 90 days of free care</b> – after that you can pick a care plan at $295 / month or $595 / month, cancel anytime.</li><li><b>Own the site</b> – you control all code, content, and domain.</li></ol>\n<h2>Packages</h2>\n<ul><li><b>Launch</b> – $2,950, up to 5 pages, custom design, contact forms, SEO basics.</li><li><b>Signature</b> – $7,500, unlimited sections, galleries, admin panel, spreadsheet events, email and form integrations.</li><li><b>Platform</b> – $15 K, web apps, SaaS MVPs, mobile apps.</li></ul>\n<h2>Hosting &amp; Care</h2>\n<ul><li><b>Hosting</b> – $0 / month on Cloudflare Pages and GitHub.</li><li><b>Care</b> – 90 days free after launch; then $295 / month or $595 / month, cancel anytime.</li><li><b>Deposit</b> – 50 % before work starts.</li><li><b>Downtime</b> – 0 minutes during launch.</li></ul>\n<h2>FAQ</h2>\n<p><b>Do I need to pay for hosting?</b> No. Hosting is $0 / month on Cloudflare Pages and GitHub.</p>\n<p><b>Can I keep my current website if I don’t like the remake?</b> Yes. If you don’t like the free homepage remake, you keep your existing design.</p>\n<p><b>What happens after the 90 days of free care?</b> You can choose a care plan at $295 / month or $595 / month, cancel any time.</p>\n<h2>Next Step</h2>\n<p><a href=\"https://everbuiltstudio.com/free-homepage-remake/\">Start your free homepage remake now</a> and take the first step toward a new website you own outright.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I need to pay for hosting?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Hosting is $0 / month on Cloudflare Pages and GitHub."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I keep my current website if I don’t like the remake?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. If you don’t like the free homepage remake, you keep your existing design."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens after the 90 days of free care?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can choose a care plan at $295 / month or $595 / month, cancel any time."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "remote web design services $0/month"
+ ],
+ "updated": "2026-10-27",
+ "draft_id": "db479cba50",
+ "source": "seo"
+}
