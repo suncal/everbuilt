@@ -1,0 +1,45 @@
+{
+ "path": "/roofing-website-design/",
+ "title": "Roofing Website Design",
+ "h1": "Roofing Website Design",
+ "description": "You're looking for a roofing website design that you own outright, with no monthly hosting fees. You can get a custom website design that meets your",
+ "html": "<h1>Roofing Website Design</h1>\n<p>You're looking for a roofing website design that you own outright, with no monthly hosting fees. You can get a custom website design that meets your needs, with a launch package priced at $2,950.</p>\n<h2>How it Works for Roofing Contractors</h2>\n<p>To get started, you can opt for the free homepage remake, which requires no call or payment details, and you get to keep the design if you don't like it. The launch package includes up to 5 pages, custom design, contact forms, and SEO basics, all delivered in about a week.</p>\n<h2>What You Get and What it Costs</h2>\n<p>With Everbuilt Studio, you pay a 50% deposit upfront, with the balance due at launch. You get 90 days of free care after launch, and then you can opt for care plans at $295/month or $595/month, cancelable at any time. Your website will be hosted on Cloudflare Pages and GitHub, with $0/month hosting fees. For more complex needs, the signature package is available for $7,500, and includes unlimited sections, galleries, admin panel, and more.</p>\n<h2>FAQ</h2>\n<p><b>What kind of support can I expect after launch?</b> You get 90 days of free care after launch, and then you can opt for care plans at $295/month or $595/month. <b>Do I own my website outright?</b> Yes, you own your website outright, including the code, content, and domain. <b>How long does it take to launch a website?</b> The launch package typically takes about a week to deliver.</p>\n<p>To get started with your roofing website design, <a href=\"/custom-website-launch-package/\">visit our custom website launch package page</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What kind of support can I expect after launch?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You get 90 days of free care after launch, and then you can opt for care plans at $295/month or $595/month."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I own my website outright?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you own your website outright, including the code, content, and domain."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does it take to launch a website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The launch package typically takes about a week to deliver."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "roofing website design"
+ ],
+ "updated": "2026-10-27",
+ "draft_id": "d71917f75b",
+ "source": "seo"
+}
