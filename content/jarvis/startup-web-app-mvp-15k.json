@@ -1,0 +1,45 @@
+{
+ "path": "/startup-web-app-mvp-15k/",
+ "title": "Startup Web App MVP for $15K",
+ "h1": "Startup Web App MVP for $15K",
+ "description": "You can launch a web app that works from day one. We build it for $15K, own the code, and host it for free on Cloudflare Pages and GitHub.",
+ "html": "<h1>Startup Web App MVP for $15K</h1>\n<p>You can launch a web app that works from day one. We build it for $15K, own the code, and host it for free on Cloudflare Pages and GitHub.</p>\n<h2>How it works for a founder launching a new SaaS</h2>\n<ol><li><b>Define the MVP</b> – We capture your core features and user flow.</li><li><b>Design &amp; build</b> – Custom UI, admin panel, and spreadsheet‑based events.</li><li><b>Deploy</b> – Your site goes live in about a week.</li><li><b>Launch</b> – We hand you the code, domain, and content ownership.</li><li><b>Care</b> – 90 days of free maintenance, then optional plans at $295/month or $595/month.</li></ol>\n<h2>What you get</h2>\n<ul><li><b>$15K total</b> – 50% deposit, balance at launch.</li><li>Unlimited sections, galleries, admin panel, spreadsheet events, email and form integrations.</li><li>Zero monthly hosting fee – $0/month on Cloudflare Pages and GitHub.</li><li>90 days of free care after launch.</li><li>Optional care plans: $295/month or $595/month, cancel anytime.</li></ul>\n<h2>FAQ</h2>\n<p><b>How long does the MVP take?</b> Answer: About a week from design to launch.</p>\n<p><b>Do I need to pay for hosting?</b> Answer: No. Hosting is free on Cloudflare Pages and GitHub.</p>\n<p><b>What happens after the 90 days of free care?</b> Answer: You can choose a care plan at $295/month or $595/month, or cancel without penalty.</p>\n<p><a href=\"https://everbuiltstudio.com/startup-web-app-mvp-15k/\">Get started with a startup web app MVP for $15K →</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How long does the MVP take?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Answer: About a week from design to launch."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need to pay for hosting?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Answer: No. Hosting is free on Cloudflare Pages and GitHub."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens after the 90 days of free care?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Answer: You can choose a care plan at $295/month or $595/month, or cancel without penalty."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "startup web app mvp $15k"
+ ],
+ "updated": "2026-10-28",
+ "draft_id": "d7d3fc9048",
+ "source": "seo"
+}
