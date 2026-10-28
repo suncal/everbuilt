@@ -1,0 +1,45 @@
+{
+ "path": "/ecommerce-website-launch-2950/",
+ "title": "Ecommerce Website Launch $2,950",
+ "h1": "Ecommerce Website Launch $2,950",
+ "description": "You can launch a new website for $2,950. The package includes up to five pages, a unique design, contact forms and basic SEO, and you own the code,",
+ "html": "<h1>Ecommerce Website Launch $2,950</h1>\n<p>You can launch a new website for $2,950. The package includes up to five pages, a unique design, contact forms and basic SEO, and you own the code, content and domain.</p>\n<h2>What’s included</h2>\n<ul><li><b>Launch fee:</b> $2,950</li><li><b>Pages:</b> up to 5</li><li><b>Design:</b> custom layout for each page</li><li><b>Features:</b> contact forms, basic SEO settings</li><li><b>Hosting:</b> $0 /month on Cloudflare Pages and GitHub</li><li><b>Ownership:</b> you keep all code, content and the domain</li><li><b>Support:</b> 90 days of free care after launch</li><li><b>Deposit:</b> 50 % up front, balance due at launch</li></ul>\n<h2>How the process works</h2>\n<ol><li><b>Free homepage remake</b> – Send us your current site or a design idea. We build a new homepage at no cost. If you don’t like it, you keep the design.</li><li><b>Design &amp; build</b> – We create a custom design for up to five pages, add contact forms and set up basic SEO.</li><li><b>Launch</b> – We publish the site on Cloudflare Pages and GitHub, typically within about a week.</li><li><b>Post‑launch care</b> – You receive 90 days of free support. After that you can choose a care plan for $295 /month or $595 /month and cancel anytime.</li></ol>\n<h2>Who this works for</h2>\n<ul><li>Small businesses that need a professional online presence</li><li>Nonprofits looking for a cost‑effective site</li><li>Founders and individuals launching a new brand or service</li><li>Projects that benefit from a remote‑first studio</li></ul>\n<p>All clients receive the same ownership rights and hosting arrangement, regardless of location. We reply within one business day.</p>\n<h2>FAQ</h2>\n<p><b>Do I need to provide content?</b> You can supply text, images and any product data you have. We can also help source assets if needed.</p>\n<p><b>What happens after the 90 days of free care?</b> You may continue with a care plan at $295 /month or $595 /month, or you can end support at any time.</p>\n<p><b>Is the site ready to use right after launch?</b> Yes. The site is live on Cloudflare Pages and GitHub, and you have full control of the domain and code.</p>\n<h2>Next step</h2>\n<p>Ready to start your website launch? Visit our <a href=\"https://everbuiltstudio.com\">contact page</a> and fill out the brief form. We’ll get back to you within one business day to begin the free homepage remake.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I need to provide content?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can supply text, images and any product data you have. We can also help source assets if needed."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens after the 90 days of free care?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You may continue with a care plan at $295 /month or $595 /month, or you can end support at any time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is the site ready to use right after launch?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The site is live on Cloudflare Pages and GitHub, and you have full control of the domain and code."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "ecommerce website launch $2950"
+ ],
+ "updated": "2026-10-28",
+ "draft_id": "d6bc151b2c",
+ "source": "seo"
+}
