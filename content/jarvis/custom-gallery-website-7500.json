@@ -1,0 +1,45 @@
+{
+ "path": "/custom-gallery-website-7500/",
+ "title": "Custom Gallery Website $7,500",
+ "h1": "Custom Gallery Website $7,500",
+ "description": "You can get a custom gallery site for $7,500. You own the code, content, and domain when it launches.",
+ "html": "<h1>Custom Gallery Website $7,500</h1>\n<p>You can get a custom gallery site for $7,500. You own the code, content, and domain when it launches.</p>\n<h2>How it works</h2>\n<ol><li>Request a free homepage remake to see the design style.</li><li>Approve the concept and pay a 50 % deposit.</li><li>We build the full gallery site with unlimited sections, photo galleries, spreadsheet‑driven events, and email/form integrations.</li><li>You review the live site, give final feedback, and the balance is charged at launch.</li><li>The site goes live on Cloudflare Pages (hosting $0/month) and you keep full ownership.</li></ol>\n<h2>What you get for $7,500</h2>\n<ul><li>Unlimited sections and photo galleries (the US250 Tour case used 2,100+ photos).</li><li>Admin panel for easy content updates.</li><li>Spreadsheet‑based event management.</li><li>Email and form integrations.</li><li>Basic SEO and contact forms.</li><li>90 days of free care after launch.</li><li>Optional care plans after the free period: $295 / month or $595 / month, cancel anytime.</li><li>No monthly hosting fee—$0/month on Cloudflare Pages and GitHub.</li></ul>\n<h2>Why choose us</h2>\n<ul><li>Remote‑first studio serving businesses, nonprofits, founders, and individuals.</li><li>Quick reply within one business day.</li><li>All work is done on a platform you control; there are no hidden fees.</li></ul>\n<h2>FAQ</h2>\n<p><b>What does “custom” include?</b> A unique design built for your brand, unlimited gallery sections, an admin panel, and any email or form integrations you need.</p>\n<p><b>Do I own the website after launch?</b> Yes. You own the code, the content, and the domain outright.</p>\n<p><b>Can I add ongoing support later?</b> After the 90‑day free care period you can choose a care plan for $295 / month or $595 / month, and you can cancel at any time.</p>\n<h2>Next step</h2>\n<p>Request the free homepage remake to start your custom gallery website project. <a href=\"https://everbuiltstudio.com/custom-website-launch-package/\">/custom-website-launch-package/</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What does “custom” include?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A unique design built for your brand, unlimited gallery sections, an admin panel, and any email or form integrations you need."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I own the website after launch?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. You own the code, the content, and the domain outright."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I add ongoing support later?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "After the 90‑day free care period you can choose a care plan for $295 / month or $595 / month, and you can cancel at any time."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "custom gallery website $7500"
+ ],
+ "updated": "2026-10-31",
+ "draft_id": "d64844cf72",
+ "source": "seo"
+}
