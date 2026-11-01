@@ -1,0 +1,45 @@
+{
+ "path": "/contact-form-integration-2950/",
+ "title": "Contact Form Integration",
+ "h1": "Contact Form Integration",
+ "description": "You can get a website with contact form integration as part of the Launch package for $2,950. This package includes up to 5 pages, custom design, contact",
+ "html": "<h1>Contact Form Integration</h1>\n<p>You can get a website with contact form integration as part of the Launch package for $2,950. This package includes up to 5 pages, custom design, contact forms, and SEO basics, and you'll own the site outright, including the code, content, and domain.</p>\n<h2>How it Works</h2>\n<p>The Launch package includes contact forms, allowing visitors to get in touch with you easily. The process takes about a week, and you'll have a fully functional website.</p>\n<h2>What You Get</h2>\n<p>The Launch package costs $2,950, with a 50% deposit upfront and the balance due at launch. You'll also get 90 days of free care after launch, and then you can opt for a care plan at $295/month or $595/month, cancelable at any time. Your website will be hosted on Cloudflare Pages and GitHub, with $0/month hosting fees.</p>\n<h2>FAQ</h2>\n<p><b>What is included in the Launch package?</b> The Launch package includes up to 5 pages, custom design, contact forms, and SEO basics. <b>How long does it take to get a website with the Launch package?</b> The Launch package takes about a week to complete. <b>Do I own the website outright?</b> Yes, with Everbuilt Studio, you own the website outright, including the code, content, and domain.</p>\n<p>To get started with a website that includes contact form integration, <a href=\"/custom-website-launch-package/\">learn more about the Launch package</a> on this site.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is included in the Launch package?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Launch package includes up to 5 pages, custom design, contact forms, and SEO basics."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does it take to get a website with the Launch package?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Launch package takes about a week to complete."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I own the website outright?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, with Everbuilt Studio, you own the website outright, including the code, content, and domain."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "contact form integration $2950"
+ ],
+ "updated": "2026-11-01",
+ "draft_id": "da92bfa7f5",
+ "source": "seo"
+}
