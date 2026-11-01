@@ -1,0 +1,45 @@
+{
+ "path": "/email-integration-website-7500/",
+ "title": "Email Integration Website $7500",
+ "h1": "Email Integration Website $7500",
+ "description": "Yes, you can get a full‑featured website that includes email and form integrations for $7,500. On this page you’ll see what the Signature service includes",
+ "html": "<h1>Email Integration Website $7500</h1>\n<p>Yes, you can get a full‑featured website that includes email and form integrations for $7,500. On this page you’ll see what the Signature service includes and how to start the project.</p>\n<h2>How it works for a business that needs email capture and automated forms</h2>\n<ol><li><b>Free homepage remake</b> – request a redesign of your current homepage; no call, no payment details. If you don’t like the result you keep the design.</li><li><b>Sign the contract</b> – pay a 50 % deposit. The remaining balance is due at launch.</li><li><b>Launch</b> – within about a week we deliver a custom site with unlimited sections, galleries, an admin panel, spreadsheet‑based events, and the email/form integrations you asked for.</li><li><b>90 days of free care</b> – we monitor the site, fix bugs, and answer questions at no charge. After that you can keep the site with an optional care plan or simply own it outright.</li></ol>\n<h2>What you get and the cost</h2>\n<ul><li><b>Signature website design</b> – $7,500 total (one‑time fee).</li><li>Unlimited page sections, photo galleries, and a custom admin panel.</li><li>Email and form integrations that push submissions to your inbox or spreadsheets.</li><li>All code, content, and domain remain yours; you own the site outright.</li><li>Hosting is $0/month on Cloudflare Pages and GitHub.</li><li>90 days of free post‑launch care; optional ongoing care at $295 / month or $595 / month, cancel any time.</li></ul>\n<h2>FAQ</h2>\n<p><b>What is included in the $7,500 price?</b> The Signature package covers unlimited site sections, galleries, an admin panel, spreadsheet‑based events, and full email/form integrations. It also includes custom design work and a week‑long development timeline.</p>\n<p><b>Do I have to pay ongoing hosting fees?</b> No. Hosting is provided at $0/month through Cloudflare Pages and GitHub. You only pay if you choose a care plan after the free 90‑day period.</p>\n<p><b>Can I see an example of a similar project?</b> Yes. The US250 Tour case study used the $7,500 package, handling 2,100+ photos, 78 GB of assets, and zero downtime. View it at <b><a href=\"/work/us250.html\">us250tour.com case study</a></b>.</p>\n<p><b>What if I need a website faster than a week?</b> The standard launch timeline is about a week. Faster delivery would require a separate agreement and pricing.</p>\n<p><b>How do I start?</b></p>\n<p><a href=\"/signature-website-design-service/\">Start your email‑integration website project</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is included in the $7,500 price?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Signature package covers unlimited site sections, galleries, an admin panel, spreadsheet‑based events, and full email/form integrations. It also includes custom design work and a week‑long development timeline."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I have to pay ongoing hosting fees?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Hosting is provided at $0/month through Cloudflare Pages and GitHub. You only pay if you choose a care plan after the free 90‑day period."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I see an example of a similar project?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The US250 Tour case study used the $7,500 package, handling 2,100+ photos, 78 GB of assets, and zero downtime. View it at **[us250tour.com case study](/work/us250.html)**."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "email integration website $7500"
+ ],
+ "updated": "2026-11-01",
+ "draft_id": "d50a9e84be",
+ "source": "seo"
+}
