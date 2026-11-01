@@ -1,0 +1,45 @@
+{
+ "path": "/seo-basics-package-2950/",
+ "title": "SEO Basics Package $2950",
+ "h1": "SEO Basics Package $2950",
+ "description": "You're looking for a website with SEO basics, and you've found the right place. On this site, you can get a custom website with SEO basics, contact forms,",
+ "html": "<h1>SEO Basics Package $2950</h1>\n<p>You're looking for a website with SEO basics, and you've found the right place. On this site, you can get a custom website with SEO basics, contact forms, and up to 5 pages for a one-time fee of $2,950, with a 50% deposit and the balance due at launch.</p>\n<h2>How it Works</h2>\n<p>The SEO Basics Package includes a custom design, up to 5 pages, and basic SEO setup. You'll get a website that is optimized for search engines, with a design that fits your brand. The process takes about a week, and you'll own the site outright, with no monthly fees for hosting on Cloudflare Pages and GitHub. You'll also get 90 days of free care after launch.</p>\n<h2>What You Get and Costs</h2>\n<p>The SEO Basics Package costs $2,950, with a 50% deposit due upfront and the balance due at launch. You'll get a custom website with up to 5 pages, basic SEO setup, and contact forms. After 90 days, you can opt for a care plan at $295/month or $595/month, which you can cancel at any time.</p>\n<h2>FAQ</h2>\n<p><b>What if I'm not happy with the design?</b> You can get a free homepage remake with no obligation, and if you don't like it, you can keep the design. <b>How long does it take to launch a website?</b> The process takes about a week. <b>Do I own the website?</b> Yes, you own the website outright, including the code, content, and domain.</p>\n<p><a href=\"/custom-website-launch-package/\">Get started with the SEO Basics Package</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What if I'm not happy with the design?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can get a free homepage remake with no obligation, and if you don't like it, you can keep the design."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does it take to launch a website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The process takes about a week."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I own the website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you own the website outright, including the code, content, and domain."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "seo basics package $2950"
+ ],
+ "updated": "2026-11-01",
+ "draft_id": "d213468fcb",
+ "source": "seo"
+}
