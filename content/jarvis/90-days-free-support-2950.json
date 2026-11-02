@@ -1,0 +1,45 @@
+{
+ "path": "/90-days-free-support-2950/",
+ "title": "90 Days Free Support with Launch",
+ "h1": "90 Days Free Support with Launch",
+ "description": "You can launch a website with Everbuilt Studio and get 90 days of free care after it's launched. The Launch package is $2,950 and includes up to 5 pages",
+ "html": "<h1>90 Days Free Support with Launch</h1>\n<p>You can launch a website with Everbuilt Studio and get 90 days of free care after it's launched. The Launch package is $2,950 and includes up to 5 pages with custom design.</p>\n<h2>How the Launch Package Works</h2>\n<p>You pay a 50% deposit now and the rest at launch. We design up to 5 pages, add contact forms, and include basic SEO. Your site is built on Cloudflare Pages and GitHub, so hosting is $0/month.</p>\n<h2>What You Get</h2>\n<ul><li>Up to 5 pages with custom design</li><li>Contact forms and SEO basics</li><li>Hosting on Cloudflare Pages &amp; GitHub (free)</li><li>90 days of free care after launch</li><li>Optional care plans: $295/month or $595/month, cancel anytime</li></ul>\n<h2>FAQ</h2>\n<p><b>What happens after the 90 days of free care?</b> You can choose a care plan at $295/month or $595/month.</p>\n<p><b>Do I own the site?</b> Yes. You own the code, content, and domain outright.</p>\n<p><b>What other options are available?</b> You can also consider the Signature package from $7,500 or the Platform package from $15K for more features.</p>\n<p>Next, review the <a href=\"https://everbuiltstudio.com/custom-website-launch-package/\">custom website launch package</a> to get started with your launch and 90 days of free care.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What happens after the 90 days of free care?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can choose a care plan at $295/month or $595/month."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I own the site?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. You own the code, content, and domain outright."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What other options are available?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can also consider the Signature package from $7,500 or the Platform package from $15K for more features."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "90 days free support $2950"
+ ],
+ "updated": "2026-11-02",
+ "draft_id": "d7a67ef800",
+ "source": "seo"
+}
