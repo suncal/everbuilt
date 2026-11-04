@@ -1,0 +1,46 @@
+{
+ "path": "/subscribe-to-website-care-plan-295/",
+ "title": "Subscribe to a $295 Website Care Plan",
+ "h1": "Subscribe to a $295 Website Care Plan",
+ "description": "After your site’s free 90‑day care ends, you can keep it updated and backed up for $295 a month. The plan covers routine maintenance, security patches,",
+ "html": "<h1>Subscribe to a $295 Website Care Plan</h1>\n<p>After your site’s free 90‑day care ends, you can keep it updated and backed up for $295 a month. The plan covers routine maintenance, security patches, and a few small content edits each month.</p>\n<h2>How the plan works</h2>\n<ol><li>Launch your site with a Launch ($2,950), Signature ($7,500), or Platform ($15K) package.</li><li>Receive 90 days of free care that includes updates, minor fixes, and monitoring.</li><li>When the free period ends, the $295/month plan begins automatically unless you cancel.</li><li>Everbuilt Studio handles regular updates, security monitoring, backups, and up to a few small content changes each month.</li><li>You may cancel at any time; there is no long‑term contract.</li></ol>\n<h2>What’s included</h2>\n<ul><li><b>Monthly fee:</b> $295 (upgrade to $595 for premium care).</li><li><b>Maintenance:</b> routine code updates and security patches.</li><li><b>Backups:</b> regular site backups stored on Cloudflare Pages and GitHub.</li><li><b>Content edits:</b> a few small changes per month, such as text tweaks or image swaps.</li><li><b>Ownership:</b> you keep full ownership of the code, content, and domain.</li><li><b>Hosting:</b> $0/month on Cloudflare Pages and GitHub.</li></ul>\n<h2>FAQ</h2>\n<p><b>What happens after the 90‑day free care period?</b> You can continue with the $295/month plan or upgrade to $595/month. The service is optional and can be stopped at any time.</p>\n<p><b>Can I start the care plan before the free period ends?</b> Yes. You may subscribe at any point; the first billed month starts after the free period.</p>\n<p><b>What if I need larger changes or new features?</b> Major redesigns or new functionality are billed separately, using the same one‑time fees for Launch, Signature, or Platform projects.</p>\n<h2>Next step</h2>\n<p>Click the button below to add the $295 care plan to your existing site.</p>\n<p><a href=\"/subscribe-to-website-care-plan-295/\">Subscribe to the $295 Care Plan</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What happens after the 90‑day free care period?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can continue with the $295/month plan or upgrade to $595/month. The service is optional and can be stopped at any time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I start the care plan before the free period ends?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. You may subscribe at any point; the first billed month starts after the free period."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if I need larger changes or new features?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Major redesigns or new functionality are billed separately, using the same one‑time fees for Launch, Signature, or Platform projects."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "subscribe to website care plan $295",
+  "subscribe to premium care plan $595"
+ ],
+ "updated": "2026-11-04",
+ "draft_id": "d59d076d76",
+ "source": "seo"
+}
