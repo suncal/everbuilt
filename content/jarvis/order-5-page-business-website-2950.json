@@ -1,0 +1,45 @@
+{
+ "path": "/order-5-page-business-website-2950/",
+ "title": "Order 5‑Page Business Website $2950",
+ "h1": "Order 5‑Page Business Website $2950",
+ "description": "Yes. For $2,950 you get a custom‑designed, five‑page website that you own outright. Click Launch and we’ll build, host for $0/month, and hand you the",
+ "html": "<h1>Order 5‑Page Business Website $2950</h1>\n<p>Yes. For $2,950 you get a custom‑designed, five‑page website that you own outright. Click <b>Launch</b> and we’ll build, host for $0/month, and hand you the code, content and domain.</p>\n<h2>How it works for a small business launch</h2>\n<ol><li>Choose the <b>Launch</b> package on the order page.</li><li>Pay a 50 % deposit; we start the design and development.</li><li>In about a week you receive a live site with contact forms and basic SEO.</li><li>Review the site; we make any final tweaks before launch.</li><li>After launch you get 90 days of free care, then optional support plans if you wish.</li></ol>\n<h2>What you get and the cost</h2>\n<ul><li>Up to <b>5 pages</b> of custom design (home, about, services, contact, etc.)</li><li>Fully owned code, content and domain – no hidden fees</li><li>Hosting on Cloudflare Pages and GitHub at <b>$0/month</b></li><li>Contact forms, basic SEO, and a week‑long turnaround</li><li>90 days of free post‑launch care; ongoing care optional at <b>$295/month</b> or <b>$595/month</b></li><li>Balance due at launch (the remaining 50 %).</li></ul>\n<h2>FAQ</h2>\n<p><b>What happens if I don’t like the design?</b> You can request a free homepage remake first. If you don’t like it, you keep the design and pay nothing for the remake.</p>\n<p><b>Do I have to sign a long‑term contract?</b> No. You own the site outright after the final payment. Ongoing care is optional and can be cancelled any time.</p>\n<p><b>How quickly will my site be live?</b> The Launch package is built in about a week, then you go live immediately on Cloudflare Pages.</p>\n<p>Ready to start? <a href=\"/custom-website-launch-package/\">Order your 5‑page business website now</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What happens if I don’t like the design?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can request a free homepage remake first. If you don’t like it, you keep the design and pay nothing for the remake."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I have to sign a long‑term contract?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. You own the site outright after the final payment. Ongoing care is optional and can be cancelled any time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How quickly will my site be live?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Launch package is built in about a week, then you go live immediately on Cloudflare Pages."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "order 5‑page business website $2950"
+ ],
+ "updated": "2026-11-04",
+ "draft_id": "d3dd8cbceb",
+ "source": "seo"
+}
